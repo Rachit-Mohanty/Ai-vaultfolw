@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>VaultFlow - Cognitive OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "bg-main": "#F8F7F4",
+                        "slate-dark": "#1E293B",
+                        "slate-muted": "#64748B",
+                        "slate-light": "#E2E8F0"
+                    },
+                    fontFamily: {
+                        "serif": ["Playfair Display", "serif"],
+                        "sans": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F8F7F4;
+            min-height: 100vh;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-dark flex flex-col items-center bg-bg-main">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-bg-main/90 backdrop-blur-sm border-b border-slate-light px-8 py-5 transition-all duration-300">
+<div class="max-w-6xl mx-auto flex justify-between items-center">
+<!-- Brand -->
+<a class="flex items-center gap-4 text-slate-dark transition-all" href="#"><img alt="VaultFlow Logo" class="h-10 w-auto transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2S3mMiJNv2T3_22EPVwrIFmD1ub1_2Kx3acL__j9h1-f_TfmBxoDKJvQB0PBuVuaYXCs480S7I3SoJXb3AkCSvZY2uKoYRckgG4EcceCBRB-ORgK2NXfRRc4qkfCTpfY9VfKSRNtt7RLFEwuxKFnL6kQLSYVP9LisGq--oRnSKbBohc0e1O0_sGtYWK0WZO0avV2w7QQpabJWf8jV-9h5Y8yUHIQ_f7RWxq-1Swmfi51fYaXYWiEKbiGkhJ0swemOOzIab5xF9rHgnQ" style="filter: brightness(0.9) drop-shadow(0px -1px 1px rgba(0,0,0,0.2)); border-bottom: 1px solid rgba(255,255,255,0.4); opacity: 0.85;"><span class="font-mono text-xs uppercase tracking-[0.2em] text-slate-dark">VaultFlow</span></a>
+<!-- Links (Desktop) -->
+<div class="hidden md:flex gap-10 items-center">
+<a class="font-mono text-xs uppercase tracking-widest text-slate-muted hover:text-slate-dark transition-colors" href="#features">Features</a>
+<a class="font-mono text-xs uppercase tracking-widest text-slate-muted hover:text-slate-dark transition-colors" href="#search">Universal Search</a>
+<a class="font-mono text-xs uppercase tracking-widest text-slate-muted hover:text-slate-dark transition-colors" href="#ai">AI Reasoning</a>
+<a class="font-mono text-xs uppercase tracking-widest text-slate-muted hover:text-slate-dark transition-colors" href="login.html">Login</a>
+<a class="font-mono text-xs uppercase tracking-widest text-slate-muted hover:text-slate-dark transition-colors" href="signup.html">Signup</a>
+</div>
+<!-- CTA -->
+<a href="signup.html" class="border border-slate-dark text-slate-dark font-mono text-xs uppercase tracking-widest px-6 py-2.5 hover:bg-slate-dark hover:text-bg-main transition-colors duration-300">
+    Get Started
+</a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="w-full max-w-6xl flex flex-col items-center gap-40 pt-48 pb-32 px-6">
+<!-- Hero Section -->
+<section class="w-full flex flex-col items-start md:items-center text-left md:text-center relative">
+<div class="inline-flex items-center gap-3 px-4 py-1.5 border border-slate-light mb-10">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-dark"></span>
+<span class="font-mono text-[10px] font-medium text-slate-dark tracking-widest uppercase">Cognitive OS v1.0 Live</span>
+</div>
+<h1 class="font-serif text-5xl md:text-[5.5rem] tracking-wide font-light leading-[1.05] mb-10 max-w-5xl text-slate-dark">
+                The <span class="italic">Knowledge Operating System</span> for Your Mind.
+            </h1>
+<p class="text-lg md:text-xl text-slate-muted max-w-2xl font-light mb-16 leading-relaxed">
+                VaultFlow creates a single intelligent workspace where every idea, document, and conversation becomes searchable and connected.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+<a href="signup.html" class="bg-slate-dark text-bg-main font-mono text-xs uppercase tracking-widest px-8 py-4 hover:bg-black transition-colors duration-300 flex items-center justify-center gap-3">
+    Get Started
+    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<button class="border border-slate-light text-slate-dark font-mono text-xs uppercase tracking-widest px-8 py-4 hover:border-slate-dark transition-colors duration-300 flex items-center justify-center gap-3">documentation</button>
+</div>
+</section>
+<!-- Value Proposition Section -->
+<section class="w-full max-w-4xl flex flex-col" id="features">
+<div class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-slate-light pb-8">
+<div>
+<h2 class="font-serif text-4xl md:text-6xl tracking-wide font-light text-slate-dark mb-4">Architected for clarity.</h2>
+<p class="text-lg text-slate-muted font-light">Transform scattered data into a structured cognitive network.</p>
+</div>
+<div class="font-mono text-xs text-slate-muted tracking-widest uppercase pb-2">Features // 01</div>
+</div>
+<div class="flex flex-col gap-24 w-full"><div class="grid grid-cols-1 md:grid-cols-12 border-t border-l border-slate-light">
+<!-- 01 -->
+<div class="md:col-span-7 border-r border-b border-slate-light p-8 md:p-12 group hover:bg-slate-light/30 transition-colors">
+<div class="flex justify-between items-start mb-12">
+<div class="w-12 h-12 border border-slate-dark flex items-center justify-center text-slate-dark">
+<span class="material-symbols-outlined text-[24px]">psychology</span>
+</div>
+<span class="font-mono text-[10px] text-slate-muted tracking-widest">// 01</span>
+</div>
+<h3 class="font-serif text-3xl tracking-tight font-light text-slate-dark mb-6">AI-Powered Knowledge</h3>
+<p class="text-base text-slate-muted font-light leading-relaxed max-w-md">Leverage advanced neural networks to synthesize and connect your information automatically.</p>
+</div>
+<!-- 02 -->
+<div class="md:col-span-5 border-r border-b border-slate-light p-8 md:p-12 group hover:bg-slate-light/30 transition-colors">
+<div class="flex justify-between items-start mb-12">
+<div class="w-12 h-12 border border-slate-dark flex items-center justify-center text-slate-dark">
+<span class="material-symbols-outlined text-[24px]">search</span>
+</div>
+<span class="font-mono text-[10px] text-slate-muted tracking-widest">// 02</span>
+</div>
+<h3 class="font-serif text-3xl tracking-tight font-light text-slate-dark mb-6">Smart Search</h3>
+<p class="text-base text-slate-muted font-light leading-relaxed">Find exactly what you need with semantic understanding that goes beyond simple keywords.</p>
+</div>
+<!-- 03 -->
+<div class="md:col-span-5 border-r border-b border-slate-light p-8 md:p-12 group hover:bg-slate-light/30 transition-colors">
+<div class="flex justify-between items-start mb-12">
+<div class="w-12 h-12 border border-slate-dark flex items-center justify-center text-slate-dark">
+<span class="material-symbols-outlined text-[24px]">smart_toy</span>
+</div>
+<span class="font-mono text-[10px] text-slate-muted tracking-widest">// 03</span>
+</div>
+<h3 class="font-serif text-3xl tracking-tight font-light text-slate-dark mb-6">AI Assistant</h3>
+<p class="text-base text-slate-muted font-light leading-relaxed">A dedicated cognitive partner to help you draft, refine, and explore your ideas in real-time.</p>
+</div>
+<!-- 04 -->
+<div class="md:col-span-7 border-r border-b border-slate-light p-8 md:p-12 group hover:bg-slate-light/30 transition-colors">
+<div class="flex justify-between items-start mb-12">
+<div class="w-12 h-12 border border-slate-dark flex items-center justify-center text-slate-dark">
+<span class="material-symbols-outlined text-[24px]">description</span>
+</div>
+<span class="font-mono text-[10px] text-slate-muted tracking-widest">// 04</span>
+</div>
+<h3 class="font-serif text-3xl tracking-tight font-light text-slate-dark mb-6">Document Management</h3>
+<p class="text-base text-slate-muted font-light leading-relaxed max-w-md">Seamlessly organize and version your files within a unified, intelligent environment.</p>
+</div>
+<!-- 05 -->
+<div class="md:col-span-4 border-r border-b border-slate-light p-8 md:p-12 group hover:bg-slate-light/30 transition-colors">
+<div class="flex justify-between items-start mb-12">
+<div class="w-12 h-12 border border-slate-dark flex items-center justify-center text-slate-dark">
+<span class="material-symbols-outlined text-[24px]">account_tree</span>
+</div>
+<span class="font-mono text-[10px] text-slate-muted tracking-widest">// 05</span>
+</div>
+<h3 class="font-serif text-3xl tracking-tight font-light text-slate-dark mb-6">Automatic Organization</h3>
+<p class="text-base text-slate-muted font-light leading-relaxed">Stop sorting manually. Our system categorizes and tags your data based on context.</p>
+</div>
+<!-- 06 -->
+<div class="md:col-span-4 border-r border-b border-slate-light p-8 md:p-12 group hover:bg-slate-light/30 transition-colors">
+<div class="flex justify-between items-start mb-12">
+<div class="w-12 h-12 border border-slate-dark flex items-center justify-center text-slate-dark">
+<span class="material-symbols-outlined text-[24px]">encrypted</span>
+</div>
+<span class="font-mono text-[10px] text-slate-muted tracking-widest">// 06</span>
+</div>
+<h3 class="font-serif text-3xl tracking-tight font-light text-slate-dark mb-6">Secure Vault</h3>
+<p class="text-base text-slate-muted font-light leading-relaxed">Enterprise-grade encryption ensures your private knowledge remains strictly yours.</p>
+</div>
+<!-- 07 -->
+<div class="md:col-span-4 border-r border-b border-slate-light p-8 md:p-12 group hover:bg-slate-light/30 transition-colors">
+<div class="flex justify-between items-start mb-12">
+<div class="w-12 h-12 border border-slate-dark flex items-center justify-center text-slate-dark">
+<span class="material-symbols-outlined text-[24px]">bolt</span>
+</div>
+<span class="font-mono text-[10px] text-slate-muted tracking-widest">// 07</span>
+</div>
+<h3 class="font-serif text-3xl tracking-tight font-light text-slate-dark mb-6">Fast Access</h3>
+<p class="text-base text-slate-muted font-light leading-relaxed">Optimized for speed, providing sub-second retrieval across millions of data points.</p>
+</div>
+<!-- 08 -->
+<div class="md:col-span-8 border-r border-b border-slate-light p-8 md:p-12 group hover:bg-slate-light/30 transition-colors">
+<div class="flex justify-between items-start mb-12">
+<div class="w-12 h-12 border border-slate-dark flex items-center justify-center text-slate-dark">
+<span class="material-symbols-outlined text-[24px]">database</span>
+</div>
+<span class="font-mono text-[10px] text-slate-muted tracking-widest">// 08</span>
+</div>
+<h3 class="font-serif text-3xl tracking-tight font-light text-slate-dark mb-6">Personal Knowledge Base</h3>
+<p class="text-base text-slate-muted font-light leading-relaxed max-w-xl">Build a lasting digital legacy of your thoughts, learnings, and experiences.</p>
+</div>
+<!-- 09 -->
+<div class="md:col-span-4 border-r border-b border-slate-light p-8 md:p-12 group hover:bg-slate-light/30 transition-colors">
+<div class="flex justify-between items-start mb-12">
+<div class="w-12 h-12 border border-slate-dark flex items-center justify-center text-slate-dark">
+<span class="material-symbols-outlined text-[24px]">insights</span>
+</div>
+<span class="font-mono text-[10px] text-slate-muted tracking-widest">// 09</span>
+</div>
+<h3 class="font-serif text-3xl tracking-tight font-light text-slate-dark mb-6">Intelligent Insights</h3>
+<p class="text-base text-slate-muted font-light leading-relaxed">Uncover patterns and trends in your data that were previously invisible.</p>
+</div>
+<!-- 10 -->
+<div class="md:col-span-12 border-r border-b border-slate-light p-8 md:p-12 group hover:bg-slate-light/30 transition-colors">
+<div class="flex justify-between items-start mb-12">
+<div class="w-12 h-12 border border-slate-dark flex items-center justify-center text-slate-dark">
+<span class="material-symbols-outlined text-[24px]">grid_view</span>
+</div>
+<span class="font-mono text-[10px] text-slate-muted tracking-widest">// 10</span>
+</div>
+<h3 class="font-serif text-3xl tracking-tight font-light text-slate-dark mb-6">Clean Workspace</h3>
+<p class="text-base text-slate-muted font-light leading-relaxed max-w-2xl">A distraction-free interface designed to help you focus on deep cognitive work.</p>
+</div>
+</div></div>
+</section>
+<!-- Vision Section -->
+<section class="w-full border border-slate-light p-12 md:p-32 text-center" id="vision">
+<div class="max-w-4xl mx-auto flex flex-col items-center">
+<div class="font-mono text-[10px] font-medium text-slate-muted tracking-widest uppercase mb-12">The Vision</div>
+<h2 class="font-serif text-3xl md:text-5xl lg:text-6xl tracking-wide text-slate-dark leading-tight mb-16 font-light">
+                    Create an AI-powered workspace that <span class="italic">remembers everything</span>, understands context, and helps people make better decisions.
+                </h2>
+<p class="font-mono text-xs text-slate-dark uppercase tracking-[0.2em] border-b border-slate-dark pb-2">
+                    Think less, know more.
+                </p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-light py-12 px-8">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-12">
+<div class="flex flex-col items-center md:items-start gap-6">
+<div class="font-serif text-2xl tracking-wide font-medium text-slate-dark flex items-center gap-2">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3LMZsDDEXWOFrPkS2tZ5QOv62aQXykue95UN2hSBQvtHzXI8aYUTgisY-b5fyBfj1QMC75XXYgBYCJ5wqWac0KdKJE0OuEI-Rq64QdVCzMGFvV0Nu09FkLQA9Sn4o_RViadCBoqVXA46BQSAkktyb9cCM-vOTkpVVicbtYmFiqVDQpJR5ByJpr8q_hBqRW6Fy0eX6OMN59U8jCIi1oX6EL62YpnJGAVvMwVRVicK1q5YhZIOVOlsHCHY7iUUWXJOtvQ" alt="VaultFlow Logo" class="h-8 w-auto transition-all" style="filter: brightness(0.9); opacity: 0.85;">
+                    VaultFlow
+                </div>
+<p class="text-sm text-slate-muted font-light">© 2024 VaultFlow Cognitive OS. Think less, know more.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-8 text-center md:text-left">
+<div class="flex flex-col gap-4">
+<a class="font-mono text-[10px] text-slate-muted hover:text-slate-dark transition-colors uppercase tracking-widest" href="#">Privacy Protocol</a>
+<a class="font-mono text-[10px] text-slate-muted hover:text-slate-dark transition-colors uppercase tracking-widest" href="#">our creater</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-mono text-[10px] text-slate-muted hover:text-slate-dark transition-colors uppercase tracking-widest" href="#">about</a>
+<a class="font-mono text-[10px] text-slate-muted hover:text-slate-dark transition-colors uppercase tracking-widest" href="#">Documentation</a>
+</div>
+</div>
+</div>
+</footer>
+
+
+
+
+
+
+</body></html>

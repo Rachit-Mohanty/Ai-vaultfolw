@@ -1,0 +1,3072 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://lh3.googleusercontent.com; connect-src 'self' http://localhost:5000 http://127.0.0.1:5000; frame-src blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="no-referrer">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>VaultFlow - Overview</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<script id="tailwind-config">
+tailwind.config = {
+    darkMode: "class",
+
+    theme: {
+        extend: {
+
+            colors: {
+                "on-tertiary-fixed": "#191c1d",
+                "on-tertiary-fixed-variant": "#454748",
+                "secondary": "#555f73",
+                "tertiary-container": "#26292a",
+                "primary": "#081424",
+                "inverse-primary": "#bbc7dc",
+                "secondary-fixed-dim": "#bdc7de",
+                "error": "#ba1a1a",
+                "on-primary-container": "#8490a4",
+                "primary-fixed": "#d7e3f9",
+                "on-tertiary-container": "#8e9091",
+                "outline": "#75777d",
+                "on-surface-variant": "#44474c",
+                "secondary-fixed": "#d9e3fb",
+                "surface-container": "#e9edff",
+                "on-error-container": "#93000a",
+                "background": "#f9f9ff",
+                "on-primary-fixed-variant": "#3c4859",
+                "surface-bright": "#f9f9ff",
+                "surface-container-highest": "#dbe2f9",
+                "on-secondary": "#ffffff",
+                "on-error": "#ffffff",
+                "on-secondary-container": "#596377",
+                "secondary-container": "#d6e0f8",
+                "on-primary": "#ffffff",
+                "on-surface": "#141b2c",
+                "surface": "#f9f9ff",
+                "surface-variant": "#dbe2f9",
+                "tertiary-fixed": "#e1e3e4",
+                "outline-variant": "#c5c6cc",
+                "tertiary": "#121516",
+                "on-background": "#141b2c",
+                "on-secondary-fixed": "#111c2d",
+                "inverse-on-surface": "#edf0ff",
+                "surface-container-low": "#f1f3ff",
+                "primary-container": "#1d2939",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "tertiary-fixed-dim": "#c5c7c8",
+                "on-secondary-fixed-variant": "#3d475a",
+                "inverse-surface": "#293041",
+                "surface-dim": "#d2daf0",
+                "on-primary-fixed": "#101c2c",
+                "error-container": "#ffdad6",
+                "primary-fixed-dim": "#bbc7dc",
+                "surface-tint": "#535f71",
+                "surface-container-high": "#e0e8ff"
+            },
+
+            borderRadius: {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+
+            spacing: {
+                "margin-mobile": "20px",
+                "stack-sm": "8px",
+                "stack-md": "24px",
+                "stack-xl": "120px",
+                "stack-lg": "64px",
+                "container-max": "1280px",
+                "gutter": "32px"
+            },
+
+            fontFamily: {
+                "headline-md": ["EB Garamond"],
+                "display-lg": ["EB Garamond"],
+                "body-lg": ["Hanken Grotesk"],
+                "display-lg-mobile": ["EB Garamond"],
+                "button-text": ["Hanken Grotesk"],
+                "label-caps": ["Hanken Grotesk"],
+                "body-md": ["Hanken Grotesk"]
+            },
+
+            fontSize: {
+                "headline-md": ["42px", {
+                    "lineHeight": "48px",
+                    "fontWeight": "500"
+                }],
+
+                "display-lg": ["84px", {
+                    "lineHeight": "92px",
+                    "letterSpacing": "-0.02em",
+                    "fontWeight": "500"
+                }],
+
+                "body-lg": ["20px", {
+                    "lineHeight": "32px",
+                    "fontWeight": "400"
+                }],
+
+                "display-lg-mobile": ["48px", {
+                    "lineHeight": "52px",
+                    "letterSpacing": "-0.01em",
+                    "fontWeight": "500"
+                }],
+
+                "button-text": ["14px", {
+                    "lineHeight": "20px",
+                    "letterSpacing": "0.05em",
+                    "fontWeight": "600"
+                }],
+
+                "label-caps": ["12px", {
+                    "lineHeight": "16px",
+                    "letterSpacing": "0.1em",
+                    "fontWeight": "600"
+                }],
+
+                "body-md": ["16px", {
+                    "lineHeight": "24px",
+                    "fontWeight": "400"
+                }]
+            }
+        }
+    }
+}
+</script>
+
+<style>
+
+body {
+    background-color: theme('colors.background');
+    color: theme('colors.on-background');
+}
+
+html.dark body,
+html.dark .bg-background,
+html.dark .bg-surface {
+    background-color: #101c2c !important;
+    color: #edf0ff;
+}
+
+html.dark .bg-surface-container-low,
+html.dark .bg-surface-container-lowest,
+html.dark .bg-surface-container,
+html.dark .bg-surface-container-high,
+html.dark .bg-surface-container-highest,
+html.dark .bg-surface-variant {
+    background-color: #1d2939 !important;
+}
+
+html.dark .text-primary,
+html.dark .text-on-surface,
+html.dark .text-on-surface-variant {
+    color: #edf0ff !important;
+}
+
+html.dark .border-outline-variant,
+html.dark .border-primary {
+    border-color: #596377 !important;
+}
+
+html.dark input,
+html.dark textarea {
+    background-color: #1d2939 !important;
+    color: #edf0ff !important;
+}
+
+.flat-shadow {
+    box-shadow: 4px 4px 0px 0px theme('colors.outline-variant');
+}
+
+.view-section {
+    display: none;
+}
+
+.view-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+</style>
+
+<script>
+
+function showView(viewId, element) {
+
+    const views = document.querySelectorAll('.view-section');
+
+    views.forEach(view => {
+        view.classList.remove('active');
+    });
+
+    const selectedView = document.getElementById(viewId);
+
+    if (selectedView) {
+        selectedView.classList.add('active');
+    }
+
+    const navItems = document.querySelectorAll('.nav-item');
+
+    navItems.forEach(item => {
+
+        item.classList.remove(
+            'text-primary',
+            'dark:text-primary-fixed-dim',
+            'font-bold',
+            'border-r-2',
+            'border-primary',
+            'dark:border-primary-fixed-dim',
+            'bg-surface-container-low'
+        );
+
+        item.classList.add(
+            'text-on-surface-variant',
+            'dark:text-on-tertiary-container',
+            'hover:text-primary',
+            'dark:hover:text-primary-fixed',
+            'hover:bg-surface-container-low',
+            'dark:hover:bg-primary-container'
+        );
+
+        const icon = item.querySelector('.material-symbols-outlined');
+
+        if (icon) {
+            icon.removeAttribute('data-weight');
+            icon.style.fontVariationSettings = '';
+        }
+    });
+
+    if (element) {
+
+        element.classList.remove(
+            'text-on-surface-variant',
+            'dark:text-on-tertiary-container',
+            'hover:text-primary',
+            'dark:hover:text-primary-fixed',
+            'hover:bg-surface-container-low',
+            'dark:hover:bg-primary-container'
+        );
+
+        element.classList.add(
+            'text-primary',
+            'dark:text-primary-fixed-dim',
+            'font-bold',
+            'border-r-2',
+            'border-primary',
+            'dark:border-primary-fixed-dim',
+            'bg-surface-container-low'
+        );
+
+        const icon = element.querySelector('.material-symbols-outlined');
+
+        if (icon) {
+            icon.setAttribute('data-weight', 'fill');
+            icon.style.fontVariationSettings = "'FILL' 1";
+        }
+    }
+}
+
+</script>
+
+</head>
+
+<body class="flex h-screen overflow-hidden bg-background font-body-md text-body-md">
+
+<!-- SideNavBar -->
+
+<nav class="hidden md:flex flex-col h-screen sticky top-0 p-stack-md bg-background dark:bg-primary border-r border-outline-variant dark:border-on-primary-container docked left-0 w-64 z-20">
+
+<div class="mb-stack-lg flex items-center gap-4">
+
+<div class="w-10 h-10 text-on-primary flex items-center justify-center border-outline-variant">
+
+<img
+alt="VaultFlow Logo"
+class="w-full h-full object-contain"
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNU1tdV5Hs3T0mt7pZf4SSkhTCO6E903-Cpmqac1Gfy1BO5egBdaLabD8v4hhUe8XzrPCKDKRtrCjjrAp2PPe-cOXNB2GHZkgjNv1CFoXZg9UbQwRhvdpE9ubgeiaIFcc8M1wlMZlmj3SzJjOlyy9vvTEru1eGJQ8RruNgvpmMf7lg7XFMuvPadm5t613maf8AZzE99aVY3FdNCKuSUYKqc8uGfGJ6rPCF0VtrsYCbxmUG1Heoxd5AQstfJPyQSGs_eQ">
+
+</div>
+
+<div>
+
+<h1 class="font-label-caps text-label-caps tracking-widest text-primary dark:text-primary-fixed uppercase">
+VAULTFLOW
+</h1>
+
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">
+Cognitive OS v1.0
+</p>
+
+</div>
+
+</div>
+
+<div class="flex flex-col gap-2">
+
+<a
+class="nav-item flex items-center gap-4 py-3 px-4 text-primary dark:text-primary-fixed-dim font-bold border-r-2 border-primary dark:border-primary-fixed-dim bg-surface-container-low transition-all duration-200 ease-in-out font-label-caps text-label-caps uppercase cursor-pointer"
+onclick="showView('view-overview', this)">
+
+<span
+class="material-symbols-outlined"
+data-weight="fill"
+style="font-variation-settings: 'FILL' 1;">
+dashboard </span>
+
+Overview
+
+</a>
+
+<a
+class="nav-item flex items-center gap-4 py-3 px-4 text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-primary-container transition-all duration-200 ease-in-out font-label-caps text-label-caps uppercase cursor-pointer"
+onclick="showView('view-my-vault', this)">
+
+<span class="material-symbols-outlined">
+folder_managed
+</span>
+
+Synthesized Topics
+
+</a>
+
+<a
+class="nav-item flex items-center gap-4 py-3 px-4 text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-primary-container transition-all duration-200 ease-in-out font-label-caps text-label-caps uppercase cursor-pointer"
+onclick="showView('view-documents', this)">
+
+<span class="material-symbols-outlined">
+description
+</span>
+
+Documents
+
+</a>
+
+<a
+class="nav-item flex items-center gap-4 py-3 px-4 text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-primary-container transition-all duration-200 ease-in-out font-label-caps text-label-caps uppercase cursor-pointer"
+onclick="showView('view-ai-assistant', this)" ondragover="allowDocumentDrop(event)" ondragleave="leaveDocumentDrop(event)" ondrop="dropDocumentForAi(event)">
+
+<span class="material-symbols-outlined">
+psychology
+</span>
+
+AI Assistant
+
+</a>
+
+<a
+class="nav-item flex items-center gap-4 py-3 px-4 text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-primary-container transition-all duration-200 ease-in-out font-label-caps text-label-caps uppercase cursor-pointer"
+onclick="showView('view-favorites', this)">
+
+<span class="material-symbols-outlined">
+star
+</span>
+
+Favorites
+
+</a>
+
+<a
+class="nav-item flex items-center gap-4 py-3 px-4 text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-primary-container transition-all duration-200 ease-in-out font-label-caps text-label-caps uppercase mt-auto cursor-pointer"
+onclick="showView('view-settings', this)">
+
+<span class="material-symbols-outlined">
+settings
+</span>
+
+Settings
+
+</a>
+
+<div class="mt-4 pt-4 border-t border-outline-variant">
+
+<a
+class="flex items-center gap-4 py-3 px-4 text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-primary-container transition-all duration-200 ease-in-out font-label-caps text-label-caps uppercase cursor-pointer"
+href="javascript:void(0)"
+onclick="logout()">
+
+<span class="material-symbols-outlined">
+logout
+</span>
+
+Logout
+
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Main Content Area -->
+
+<main class="flex-1 flex flex-col h-screen overflow-hidden">
+
+<!-- Mobile TopNavBar -->
+
+<header class="flex justify-between items-center h-20 px-gutter w-full bg-background/80 dark:bg-primary/80 backdrop-blur-md border-b border-outline-variant dark:border-on-primary-container docked full-width top-0 z-10 md:hidden">
+
+<div class="flex items-center gap-4">
+
+<div
+class="w-8 h-8 rounded-none bg-surface-variant border border-outline-variant overflow-hidden cursor-pointer"
+onclick="showView('view-settings')">
+
+<span class="material-symbols-outlined text-primary flex items-center justify-center h-full">
+account_circle
+</span>
+
+</div>
+
+<span class="font-label-caps text-label-caps tracking-widest text-primary dark:text-primary-fixed uppercase">
+VAULTFLOW
+</span>
+
+</div>
+
+<div class="flex items-center gap-4">
+
+<button class="text-on-surface-variant dark:text-on-tertiary-container hover:opacity-80 transition-opacity scale-95 active:scale-100 transition-transform">
+
+<span class="material-symbols-outlined">
+notifications
+</span>
+
+</button>
+
+<button class="text-on-surface-variant dark:text-on-tertiary-container hover:opacity-80 transition-opacity scale-95 active:scale-100 transition-transform">
+
+<span class="material-symbols-outlined">
+help_outline
+</span>
+
+</button>
+
+</div>
+
+</header>
+
+<!-- Desktop Top Actions -->
+
+<div class="hidden md:flex justify-end items-center h-20 px-gutter w-full bg-background/80 backdrop-blur-md border-b border-outline-variant z-10 sticky top-0">
+
+<div class="flex items-center gap-6">
+
+<button
+    onclick="openDocumentPicker()"
+    class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary font-button-text text-button-text uppercase hover:bg-primary/90 transition-colors border border-primary mr-2">
+
+    <span class="material-symbols-outlined text-[18px]">
+        upload_file
+    </span>
+
+    Upload Document
+
+</button>
+
+<input
+    type="file"
+    id="documentFileInput"
+    accept=".pdf,.docx,.txt"
+    class="hidden"
+    onchange="uploadDocument(this.files[0])">
+
+<div class="relative w-64 mr-4">
+
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">
+search
+</span>
+
+<input
+id="universalSearchInput"
+class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant font-label-caps text-label-caps focus:outline-none focus:border-primary transition-colors uppercase"
+placeholder="UNIVERSAL SEARCH..."
+type="search"
+autocomplete="off"
+oninput="searchVault(this.value)">
+
+<div id="universalSearchResults" class="hidden absolute left-0 right-0 top-full mt-1 z-30 max-h-80 overflow-y-auto border border-outline-variant bg-surface shadow-lg"></div>
+
+</div>
+
+<button class="text-on-surface-variant hover:text-primary transition-opacity scale-95 active:scale-100 transition-transform">
+
+<span class="material-symbols-outlined">
+notifications
+</span>
+
+</button>
+
+<button class="text-on-surface-variant hover:text-primary transition-opacity scale-95 active:scale-100 transition-transform">
+
+<span class="material-symbols-outlined">
+help_outline
+</span>
+
+</button>
+
+<button
+class="text-on-surface-variant hover:text-primary transition-opacity scale-95 active:scale-100 transition-transform ml-2"
+onclick="showView('view-settings', document.querySelector('.nav-item[onclick*=\'view-settings\']'))">
+
+<span class="material-symbols-outlined">
+account_circle
+</span>
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Scrollable Canvas -->
+
+<div class="flex-1 overflow-y-auto p-margin-mobile md:p-gutter pb-32 bg-surface-container-low/30 sm:p-8">
+
+<div class="max-w-5xl mx-auto w-full">
+
+<div id="views-container">
+
+<!-- View: Overview -->
+
+<div class="view-section active" id="view-overview">
+
+<section class="mb-stack-lg pt-4 md:pt-8 flex flex-col items-start">
+
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container border border-outline-variant mb-6">
+
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest">
+System Status: Active
+</span>
+
+</div>
+
+<h2 id="welcomeTextOverview" class="font-display-lg-mobile md:font-display-lg text-primary mb-4 leading-tight">
+Welcome back.
+</h2>
+
+<p class="font-body-lg text-on-surface-variant max-w-2xl">
+Your knowledge, organized. Access your cognitive vault, review recent insights, and continue synthesizing your ideas.
+</p>
+
+</section>
+
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-stack-lg sm:grid-cols-2">
+
+<div class="border border-outline-variant bg-surface p-8 flex flex-col justify-between hover:bg-surface-container-low transition-colors duration-300 min-h-[220px]">
+
+<div class="flex justify-between items-start mb-8">
+
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
+Active Notes
+</span>
+
+<span class="material-symbols-outlined text-on-surface-variant">
+edit_document
+</span>
+
+</div>
+
+<div>
+
+<div id="activeNotesCount" class="font-headline-md text-headline-md text-primary mb-2 text-6xl">
+    0
+</div>
+
+</div>
+
+</div>
+
+<div class="border border-outline-variant bg-surface p-8 flex flex-col justify-between hover:bg-surface-container-low transition-colors duration-300 min-h-[220px] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-surface-variant/30 to-surface cursor-pointer" onclick="showView('view-documents', document.querySelector('.nav-item[onclick*=\'view-documents\']'))">
+
+<div class="flex justify-between items-start mb-8">
+
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
+Uploaded Documents
+</span>
+
+<span class="material-symbols-outlined text-on-surface-variant">
+folder_special
+</span>
+
+</div>
+
+<div>
+
+<div id="archivedDocumentsCount" class="font-headline-md text-headline-md text-primary mb-2 text-6xl">
+    0
+</div>
+
+
+</div>
+
+</div>
+
+<div class="border border-primary bg-primary text-on-primary p-8 flex flex-col justify-between hover:bg-primary/90 transition-colors duration-300 min-h-[220px] shadow-[8px_8px_0px_0px_rgba(29,41,57,0.1)]">
+
+<div class="flex justify-between items-start mb-8">
+
+<span class="font-label-caps text-label-caps text-inverse-primary uppercase tracking-widest">
+Synthesized Topics
+</span>
+
+<span class="material-symbols-outlined text-inverse-primary">
+hub
+</span>
+
+</div>
+
+<div>
+
+<div id="synthesizedTopicsCount" class="font-headline-md text-headline-md text-on-primary mb-2 text-6xl">
+0
+</div>
+
+<div class="text-sm text-inverse-primary flex items-center gap-1">
+
+<span class="material-symbols-outlined text-[16px]">
+auto_awesome
+</span>
+
+AI ready
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="bg-surface border border-outline-variant p-8 md:p-10 mb-stack-lg">
+
+<div class="flex justify-between items-end border-b border-outline-variant pb-6 mb-8">
+
+<h3 class="font-headline-md text-[32px] text-primary leading-none">
+Recent Knowledge
+</h3>
+
+<a
+class="font-label-caps text-label-caps text-primary hover:text-secondary uppercase tracking-widest flex items-center gap-1 transition-colors"
+href="#">
+
+View All
+
+<span class="material-symbols-outlined text-[16px]">
+arrow_forward
+</span>
+
+</a>
+
+</div>
+
+<div
+    id="recentKnowledgeContainer"
+    class="flex flex-col divide-y divide-outline-variant">
+
+    <div class="py-12 flex flex-col items-center justify-center text-center">
+        <span
+            class="material-symbols-outlined text-on-surface-variant mb-4 opacity-50"
+            style="font-size: 48px;">
+            inventory_2
+        </span>
+
+        <p class="font-body-lg text-on-surface-variant max-w-md">
+            Loading recent knowledge...
+        </p>
+    </div>
+
+</div>
+
+</section>
+
+</div>
+
+<!-- View: Synthesized Topics -->
+
+<div class="view-section" id="view-my-vault">
+
+<section class="mb-stack-lg pt-4 md:pt-8 flex flex-col items-start">
+
+<h2 class="font-display-lg-mobile md:font-display-lg text-primary mb-4 leading-tight">
+Synthesized Topics
+</h2>
+
+<p class="font-body-lg text-on-surface-variant max-w-2xl">
+Review and manage the AI outputs saved from your documents.
+</p>
+
+</section>
+<div
+    id="myVaultContainer"
+    class="space-y-4">
+
+    <div class="py-16 flex flex-col items-center justify-center text-center border border-dashed border-outline-variant bg-surface-container-low/50">
+
+        <span
+            class="material-symbols-outlined text-on-surface-variant mb-4"
+            style="font-size: 48px;">
+            progress_activity
+        </span>
+
+        <p class="font-body-lg text-on-surface-variant">
+            Loading synthesized topics...
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- View: Documents -->
+
+<div class="view-section" id="view-documents">
+
+<section class="mb-stack-lg pt-4 md:pt-8 flex flex-col items-start">
+
+<h2 class="font-display-lg-mobile md:font-display-lg text-primary mb-4 leading-tight">
+Documents
+</h2>
+
+<p class="font-body-lg text-on-surface-variant max-w-2xl">
+Access all text, notes, and imported files.
+</p>
+
+</section>
+
+<div class="flex items-center justify-between gap-4 mb-4">
+    <span id="documentsSelectionCount" class="text-xs uppercase tracking-widest text-on-surface-variant">0 selected</span>
+    <div class="relative">
+        <button id="documentsBulkActionsButton" type="button" disabled aria-label="Selected document actions" onclick="toggleBulkActionsMenu(event, 'documentsBulkActionsMenu')" class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+            <span class="material-symbols-outlined">more_vert</span>
+        </button>
+        <div id="documentsBulkActionsMenu" class="bulk-actions-menu hidden absolute right-0 top-full mt-1 z-20 w-56 border border-outline-variant bg-surface shadow-lg py-1">
+            <button type="button" class="w-full flex items-center gap-3 px-4 py-3 text-left text-sm text-primary hover:bg-surface-container-low transition-colors" onclick="setSelectedDocumentsFavorite(true)">
+                <span class="material-symbols-outlined text-[18px]">star</span>
+                Add selected to favorites
+            </button>
+            <button type="button" class="w-full flex items-center gap-3 px-4 py-3 text-left text-sm text-error hover:bg-error-container transition-colors" onclick="deleteSelectedDocuments()">
+                <span class="material-symbols-outlined text-[18px]">delete</span>
+                Delete selected
+            </button>
+        </div>
+    </div>
+</div>
+
+<div
+    id="documentsContainer"
+    class="space-y-4">
+
+    <div class="py-16 flex flex-col items-center justify-center text-center border border-dashed border-outline-variant bg-surface-container-low/50">
+
+        <span
+            class="material-symbols-outlined text-on-surface-variant mb-4"
+            style="font-size: 48px;">
+            progress_activity
+        </span>
+
+        <p class="font-body-lg text-on-surface-variant">
+            Loading documents...
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- View: AI Assistant -->
+
+<div class="view-section" id="view-ai-assistant">
+
+<section class="mb-stack-lg pt-4 md:pt-8 flex flex-col items-start">
+
+<h2 class="font-display-lg-mobile md:font-display-lg text-primary mb-4 leading-tight">
+AI Assistant
+</h2>
+
+<p class="font-body-lg text-on-surface-variant max-w-2xl">
+Query your cognitive vault for insights and synthesis.
+</p>
+
+</section>
+
+<div id="aiDropZone" class="border border-outline-variant bg-surface p-6 md:p-8 shadow-sm transition-colors" ondragover="allowDocumentDrop(event)" ondragleave="leaveDocumentDrop(event)" ondrop="dropDocumentForAi(event)">
+    <p id="aiDropHint" class="mb-4 text-sm text-on-surface-variant">Drag a document here from the Documents section, or choose one below.</p>
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-[1fr_auto_auto]">
+        <select id="aiDocumentSelect" class="px-4 py-3 bg-surface-container-low border border-outline-variant text-primary focus:outline-none focus:border-primary" onchange="clearAiSelectionHint()">
+            <option value="">Choose a document...</option>
+        </select>
+        <div class="px-4 py-3 bg-surface-container-low border border-outline-variant text-primary flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">memory</span> Ollama (local)</div>
+        <select id="aiQuestionCount" class="px-4 py-3 bg-surface-container-low border border-outline-variant text-primary focus:outline-none focus:border-primary">
+            <option value="10">10 questions</option>
+            <option value="5">5 questions</option>
+            <option value="15">15 questions</option>
+        </select>
+    </div>
+    <textarea id="aiQuestionInput" class="w-full mt-4 px-4 py-3 min-h-28 bg-surface-container-low border border-outline-variant text-primary focus:outline-none focus:border-primary" placeholder="Ask about the whole document, or paste/highlight a passage and ask about it..."></textarea>
+    <p id="aiSelectionHint" class="hidden mt-2 text-sm text-on-surface-variant"></p>
+    <div class="flex flex-wrap gap-2 mt-4">
+        <button type="button" onclick="runDocumentAi('ask')" class="px-4 py-2 bg-primary text-on-primary text-xs uppercase tracking-widest">Ask AI</button>
+        <button type="button" onclick="runDocumentAi('summarize')" class="px-4 py-2 border border-outline-variant text-primary text-xs uppercase tracking-widest hover:bg-surface-container">Summarize</button>
+        <button type="button" onclick="runDocumentAi('explain')" class="px-4 py-2 border border-outline-variant text-primary text-xs uppercase tracking-widest hover:bg-surface-container">Explain</button>
+        <button type="button" onclick="runDocumentAi('simplify')" class="px-4 py-2 border border-outline-variant text-primary text-xs uppercase tracking-widest hover:bg-surface-container">Simplify</button>
+        <button type="button" onclick="runDocumentAi('example')" class="px-4 py-2 border border-outline-variant text-primary text-xs uppercase tracking-widest hover:bg-surface-container">Give example</button>
+        <button type="button" onclick="runDocumentAi('quiz')" class="px-4 py-2 border border-outline-variant text-primary text-xs uppercase tracking-widest hover:bg-surface-container">Quiz</button>
+        <button type="button" onclick="runDocumentAi('flashcards')" class="px-4 py-2 border border-outline-variant text-primary text-xs uppercase tracking-widest hover:bg-surface-container">Flashcards</button>
+    </div>
+    <div id="aiResponseContainer" class="hidden mt-6 border-t border-outline-variant pt-5">
+        <div class="flex items-center gap-2 mb-3 text-xs uppercase tracking-widest text-on-surface-variant"><span class="material-symbols-outlined text-[18px]">auto_awesome</span> VaultFlow AI</div>
+        <div id="aiResponse" class="whitespace-pre-wrap text-on-surface leading-7"></div>
+    </div>
+</div>
+
+</div>
+
+<!-- View: Favorites -->
+
+<div class="view-section" id="view-favorites">
+
+<section class="mb-stack-lg pt-4 md:pt-8 flex flex-col items-start">
+
+<h2 class="font-display-lg-mobile md:font-display-lg text-primary mb-4 leading-tight">
+Favorites
+</h2>
+
+<p class="font-body-lg text-on-surface-variant max-w-2xl">
+Quick access to your most important items.
+</p>
+
+</section>
+
+<div class="flex items-center justify-between gap-4 mb-4">
+    <span id="favoritesSelectionCount" class="text-xs uppercase tracking-widest text-on-surface-variant">0 selected</span>
+    <div class="relative">
+        <button id="favoritesBulkActionsButton" type="button" disabled aria-label="Selected favorite actions" onclick="toggleBulkActionsMenu(event, 'favoritesBulkActionsMenu')" class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+            <span class="material-symbols-outlined">more_vert</span>
+        </button>
+        <div id="favoritesBulkActionsMenu" class="bulk-actions-menu hidden absolute right-0 top-full mt-1 z-20 w-56 border border-outline-variant bg-surface shadow-lg py-1">
+            <button type="button" class="w-full flex items-center gap-3 px-4 py-3 text-left text-sm text-primary hover:bg-surface-container-low transition-colors" onclick="setSelectedDocumentsFavorite(false)">
+                <span class="material-symbols-outlined text-[18px]">star_border</span>
+                Remove selected from favorites
+            </button>
+            <button type="button" class="w-full flex items-center gap-3 px-4 py-3 text-left text-sm text-error hover:bg-error-container transition-colors" onclick="deleteSelectedDocuments()">
+                <span class="material-symbols-outlined text-[18px]">delete</span>
+                Delete selected
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="favoritesContainer" class="space-y-4">
+    <div class="py-16 flex flex-col items-center justify-center text-center border border-dashed border-outline-variant bg-surface-container-low/50">
+        <span class="material-symbols-outlined text-on-surface-variant mb-4 opacity-50" style="font-size: 48px;">star</span>
+        <p class="font-body-lg text-on-surface-variant">Loading favorites...</p>
+    </div>
+</div>
+
+
+</div>
+
+<!-- View: Settings -->
+
+<div class="view-section" id="view-settings">
+
+<section class="mb-stack-lg pt-4 md:pt-8 flex flex-col items-start">
+
+<h2 id="welcomeText" class="font-display-lg-mobile md:font-display-lg text-primary mb-4 leading-tight">
+    Welcome back.
+</h2>
+
+<p class="font-body-lg text-on-surface-variant max-w-2xl">
+Manage your profile, security, and environment preferences.
+</p>
+
+</section>
+
+<div class="grid grid-cols-1 gap-8 max-w-3xl">
+
+<!-- Profile Management -->
+
+<div class="border border-outline-variant bg-surface p-8 md:p-10 shadow-sm">
+
+<h3 class="font-headline-md text-primary mb-6 text-[28px] border-b border-outline-variant pb-4">
+Profile Details
+</h3>
+
+<div class="flex items-start gap-8 mb-8">
+
+<div class="w-24 h-24 rounded-full bg-surface-variant border-2 border-outline-variant overflow-hidden flex-shrink-0 relative group cursor-pointer" onclick="document.getElementById('profilePictureInput').click()">
+
+<img
+id="profilePicturePreview"
+alt="User avatar"
+class="w-full h-full object-cover"
+data-alt="A small, stylized avatar image representing a professional user profile in a minimal, high-contrast style. Light background."
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnUp8gAkTs4_cwQkCalUrkUwWTvBIuCITdRI6GAbcCS12b5EJcSqoz1Bj9MgX15Nf4FVznP9_qyisq40sXfXOrJlKW5PlOyFIYmDxNXKvTlDSyArsf3R6h_YedDZ2mO8DqhsjPTZs6V_AFyhs6wi6Z-8gHPEVal4ofVJqlp_lMUmW7ehBXz2VzjiW6aDg5OopzZWwCQV0D2_hwdn8Fvps757smlduUXc2UI-JUTVXfxe8OU03_Mn5N">
+
+<div class="absolute inset-0 bg-primary/60 hidden group-hover:flex items-center justify-center transition-all">
+
+<span class="material-symbols-outlined text-on-primary">
+photo_camera
+</span>
+
+</div>
+
+</div>
+
+<input id="profilePictureInput" type="file" accept="image/png,image/jpeg,image/webp" class="hidden" onchange="openProfilePictureCropper(this.files[0])">
+
+<div class="flex-1 space-y-4">
+
+<div>
+
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase">
+Full Name
+</label>
+
+<input
+id="profileName"
+class="w-full px-4 py-2 bg-surface-container-low border border-outline-variant focus:outline-none focus:border-primary transition-colors font-body-md"
+type="text"
+value="">
+
+</div>
+
+<div>
+
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase">
+Email Address
+</label>
+
+<input
+id="profileEmail"
+class="w-full px-4 py-2 bg-surface-container-low border border-outline-variant text-on-surface-variant cursor-not-allowed font-body-md"
+type="email"
+value=""
+readonly>
+
+</div>
+
+<button 
+onclick="saveProfile()"
+class="px-6 py-2 bg-surface-container border border-outline-variant text-primary font-button-text text-button-text uppercase hover:bg-surface-variant transition-colors mt-2">
+Save Profile
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Security -->
+
+<div class="border border-outline-variant bg-surface p-8 md:p-10 shadow-sm">
+
+<h3 class="font-headline-md text-primary mb-6 text-[28px] border-b border-outline-variant pb-4">
+Security
+</h3>
+
+<div class="space-y-4 max-w-md">
+
+<div>
+
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase">
+Current Password
+</label>
+
+<input
+    id="currentPassword"
+    class="w-full px-4 py-2 bg-surface-container-low border border-outline-variant focus:outline-none focus:border-primary transition-colors font-body-md"
+    placeholder="••••••••"
+    type="password">
+
+</div>
+
+<div>
+
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase">
+New Password
+</label>
+
+<input
+    id="newPassword"
+    class="w-full px-4 py-2 bg-surface-container-low border border-outline-variant focus:outline-none focus:border-primary transition-colors font-body-md"
+    placeholder="••••••••"
+    type="password">
+
+</div>
+
+<button
+    onclick="changePassword()"
+    class="px-6 py-2 bg-surface-container border border-outline-variant text-primary font-button-text text-button-text uppercase hover:bg-surface-variant transition-colors mt-2">
+    Update Password
+</button>
+
+</div>
+
+</div>
+
+<!-- Preferences -->
+
+<div class="border border-outline-variant bg-surface p-8 md:p-10 shadow-sm">
+
+<h3 class="font-headline-md text-primary mb-6 text-[28px] border-b border-outline-variant pb-4">
+Preferences
+</h3>
+
+<div class="flex flex-col gap-4 py-4 border-b border-outline-variant/50 sm:flex-row sm:items-center sm:justify-between">
+
+<span class="font-body-lg text-primary">
+Theme
+</span>
+
+<div class="flex border border-outline-variant">
+    <button type="button" data-theme-option="light" onclick="setTheme('light')" class="px-3 py-2 text-xs uppercase tracking-widest hover:bg-surface-variant">Light</button>
+    <button type="button" data-theme-option="dark" onclick="setTheme('dark')" class="px-3 py-2 text-xs uppercase tracking-widest hover:bg-surface-variant">Dark</button>
+    <button type="button" data-theme-option="system" onclick="setTheme('system')" class="px-3 py-2 text-xs uppercase tracking-widest hover:bg-surface-variant">System</button>
+</div>
+
+</div>
+
+<div class="flex items-center justify-between py-4">
+
+<span class="font-body-lg text-primary">
+Notifications
+</span>
+
+<span class="font-label-caps text-primary border border-outline-variant px-3 py-1 bg-surface-container cursor-pointer hover:bg-surface-variant transition-colors">
+ENABLED
+</span>
+
+</div>
+
+</div>
+
+<!-- Account Actions -->
+
+<div class="border border-error/30 bg-error-container/10 p-8 md:p-10 shadow-sm mt-4">
+
+<h3 class="font-headline-md text-error mb-4 text-[28px]">
+Danger Zone
+</h3>
+
+<p class="font-body-md text-on-surface-variant mb-6 max-w-xl italic">
+If you delete your account, how am I supposed to stare at your name on my screen all day?
+</p>
+
+<button
+    onclick="deleteAccount()"
+    class="px-6 py-3 bg-error text-on-error font-button-text text-button-text uppercase hover:bg-error/90 transition-colors border border-error">
+    Delete Account
+</button>
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<!-- Mobile Bottom Navigation -->
+
+<nav class="md:hidden fixed bottom-0 w-full bg-background/95 backdrop-blur border-t border-outline-variant z-50 px-2 py-3 flex justify-around items-center">
+
+<a
+class="flex flex-col items-center gap-1 text-primary cursor-pointer"
+onclick="showView('view-overview')">
+
+<span
+class="material-symbols-outlined"
+data-weight="fill"
+style="font-variation-settings: 'FILL' 1;">
+dashboard </span>
+
+<span class="text-[10px] uppercase font-bold tracking-wider">
+Overview
+</span>
+
+</a>
+
+<a
+class="flex flex-col items-center gap-1 text-on-surface-variant cursor-pointer"
+onclick="showView('view-my-vault')">
+
+<span class="material-symbols-outlined">
+folder_managed
+</span>
+
+<span class="text-[10px] uppercase font-bold tracking-wider">
+Topics
+</span>
+
+</a>
+
+<a
+class="flex flex-col items-center gap-1 text-on-surface-variant cursor-pointer"
+onclick="showView('view-ai-assistant')" ondragover="allowDocumentDrop(event)" ondragleave="leaveDocumentDrop(event)" ondrop="dropDocumentForAi(event)">
+
+<span class="material-symbols-outlined">
+psychology
+</span>
+
+<span class="text-[10px] uppercase font-bold tracking-wider">
+AI
+</span>
+
+</a>
+
+<a
+class="flex flex-col items-center gap-1 text-on-surface-variant cursor-pointer"
+onclick="showView('view-settings')">
+
+<span class="material-symbols-outlined">
+menu
+</span>
+
+<span class="text-[10px] uppercase font-bold tracking-wider">
+More
+</span>
+
+</a>
+
+</nav>
+
+<!-- Mobile FAB -->
+
+<button class="md:hidden fixed bottom-20 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:bg-primary/90 transition-transform active:scale-95 z-50">
+
+<span class="material-symbols-outlined">
+add
+</span>
+
+</button>
+
+<!-- ========================================================= -->
+
+<!-- VAULTFLOW AUTHENTICATION / USER LOADING -->
+
+<!-- ========================================================= -->
+
+<div id="vaultNotificationContainer" class="fixed right-5 bottom-5 z-[100] w-[min(24rem,calc(100vw-2.5rem))] space-y-3" aria-live="polite"></div>
+
+<div id="profilePictureCropper" class="hidden fixed inset-0 z-[60] bg-primary/70 p-4 items-center justify-center">
+    <div class="w-full max-w-md bg-surface border border-outline-variant p-6 shadow-xl">
+        <div class="flex items-center justify-between mb-5">
+            <h3 class="font-headline-md text-primary text-[28px]">Crop profile picture</h3>
+            <button type="button" class="text-on-surface-variant hover:text-primary" onclick="closeProfilePictureCropper()"><span class="material-symbols-outlined">close</span></button>
+        </div>
+        <div id="profileCropViewport" class="relative w-64 h-64 mx-auto overflow-hidden bg-surface-container border border-outline-variant touch-none cursor-grab active:cursor-grabbing" onpointerdown="startProfileCropDrag(event)" onpointermove="moveProfileCropDrag(event)" onpointerup="endProfileCropDrag(event)" onpointercancel="endProfileCropDrag(event)">
+            <img id="profileCropPreview" class="absolute max-w-none select-none pointer-events-none" alt="Profile image crop preview">
+        </div>
+        <label class="block mt-5 text-xs uppercase tracking-widest text-on-surface-variant">Zoom</label>
+        <input id="profileCropZoom" class="w-full mt-2" type="range" min="1" max="3" step="0.05" value="1" oninput="updateProfileCropPreview()">
+        <div class="flex justify-end gap-3 mt-6">
+            <button type="button" class="px-4 py-2 border border-outline-variant text-xs uppercase tracking-widest" onclick="closeProfilePictureCropper()">Cancel</button>
+            <button type="button" class="px-4 py-2 bg-primary text-on-primary text-xs uppercase tracking-widest" onclick="saveCroppedProfilePicture()">Save picture</button>
+        </div>
+    </div>
+</div>
+
+<div id="vaultConfirmationDialog" class="hidden fixed inset-0 z-[70] bg-primary/70 p-4 items-center justify-center" role="dialog" aria-modal="true">
+    <div class="w-full max-w-md border border-outline-variant bg-surface p-6 shadow-xl">
+        <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-error text-[28px]">warning</span>
+            <div>
+                <h3 class="font-headline-md text-primary text-[28px]">Please confirm</h3>
+                <p id="vaultConfirmationMessage" class="mt-2 text-on-surface-variant"></p>
+            </div>
+        </div>
+        <div class="flex justify-end gap-3 mt-7">
+            <button id="vaultConfirmationCancel" type="button" class="px-4 py-2 border border-outline-variant text-xs uppercase tracking-widest">Cancel</button>
+            <button id="vaultConfirmationConfirm" type="button" class="px-4 py-2 bg-error text-on-error text-xs uppercase tracking-widest">Delete</button>
+        </div>
+    </div>
+</div>
+
+<div id="documentViewer" class="hidden fixed inset-0 z-[80] bg-surface flex-col" role="dialog" aria-modal="true">
+    <div class="w-full h-full bg-surface flex flex-col">
+        <div class="flex items-center justify-between gap-4 p-4 border-b border-outline-variant">
+            <h3 id="documentViewerTitle" class="font-headline-md text-primary text-[24px] truncate">Document viewer</h3>
+            <div class="flex items-center gap-2">
+                <button id="documentViewerAskSelection" type="button" class="hidden px-3 py-2 border border-outline-variant text-xs uppercase tracking-widest hover:bg-surface-container" onclick="askAiAboutSelection()">Ask about selection</button>
+                <button id="documentViewerDownload" type="button" class="px-3 py-2 border border-outline-variant text-xs uppercase tracking-widest hover:bg-surface-container">Download</button>
+                <button type="button" class="flex items-center gap-1 px-3 py-2 border border-outline-variant text-xs uppercase tracking-widest hover:bg-surface-container" onclick="closeDocumentViewer()"><span class="material-symbols-outlined text-[18px]">arrow_back</span> Back</button>
+            </div>
+        </div>
+        <div id="documentViewerContent" class="flex-1 min-h-0 overflow-auto bg-surface-container-low"></div>
+    </div>
+</div>
+
+<div id="topicViewer" class="hidden fixed inset-0 z-[80] bg-surface flex-col" role="dialog" aria-modal="true">
+    <div class="w-full h-full bg-surface flex flex-col">
+        <div class="flex items-center justify-between gap-4 p-4 border-b border-outline-variant">
+            <h3 id="topicViewerTitle" class="font-headline-md text-primary text-[24px] truncate">Synthesized topic</h3>
+            <button type="button" class="flex items-center gap-1 px-3 py-2 border border-outline-variant text-xs uppercase tracking-widest hover:bg-surface-container" onclick="closeSynthesizedTopic()"><span class="material-symbols-outlined text-[18px]">arrow_back</span> Back</button>
+        </div>
+        <article id="topicViewerContent" class="flex-1 overflow-auto whitespace-pre-wrap p-6 md:p-10 text-on-surface leading-7"></article>
+    </div>
+</div>
+
+<script>
+
+const token = localStorage.getItem("token");
+const synthesizedTopicsById = new Map();
+const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+function hasJwtShape(value) {
+    return typeof value === "string" && /^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(value);
+}
+
+function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>'"]/g, character => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", "\"": "&quot;"
+    })[character]);
+}
+
+function applyTheme(preference = localStorage.getItem("vaultflowTheme") || "system") {
+    const resolvedTheme = preference === "system"
+        ? (systemThemeQuery.matches ? "dark" : "light")
+        : preference;
+
+    document.documentElement.classList.toggle("dark", resolvedTheme === "dark");
+    document.querySelectorAll("[data-theme-option]").forEach(button => {
+        const selected = button.dataset.themeOption === preference;
+        button.classList.toggle("bg-primary", selected);
+        button.classList.toggle("text-on-primary", selected);
+        button.classList.toggle("text-primary", !selected);
+    });
+}
+
+function setTheme(preference) {
+    localStorage.setItem("vaultflowTheme", preference);
+    applyTheme(preference);
+    showNotification(`Theme set to ${preference}.`, "success");
+}
+
+systemThemeQuery.addEventListener("change", () => {
+    if ((localStorage.getItem("vaultflowTheme") || "system") === "system") {
+        applyTheme("system");
+    }
+});
+
+applyTheme();
+
+function showNotification(message, type) {
+    const successWords = /success|created|updated|uploaded|deleted|added|removed/i;
+    const notificationType = type || (successWords.test(message) ? "success" : "error");
+    const container = document.getElementById("vaultNotificationContainer");
+    if (!container) return;
+
+    const notice = document.createElement("div");
+    notice.className = notificationType === "success"
+        ? "flex items-start gap-3 border border-primary bg-surface p-4 shadow-lg"
+        : "flex items-start gap-3 border border-error bg-error-container p-4 shadow-lg";
+    notice.innerHTML = `
+        <span class="material-symbols-outlined ${notificationType === "success" ? "text-primary" : "text-error"}">${notificationType === "success" ? "check_circle" : "error"}</span>
+        <p class="flex-1 text-sm ${notificationType === "success" ? "text-primary" : "text-on-error-container"}">${escapeHtml(message)}</p>
+        <button type="button" class="text-on-surface-variant hover:text-primary" aria-label="Dismiss notification"><span class="material-symbols-outlined text-[18px]">close</span></button>`;
+    const remove = () => notice.remove();
+    notice.querySelector("button").addEventListener("click", remove);
+    container.appendChild(notice);
+    setTimeout(remove, 4500);
+}
+
+window.alert = message => showNotification(message);
+
+function showConfirmation(message, confirmLabel = "Delete") {
+    return new Promise(resolve => {
+        const dialog = document.getElementById("vaultConfirmationDialog");
+        const confirmButton = document.getElementById("vaultConfirmationConfirm");
+        const cancelButton = document.getElementById("vaultConfirmationCancel");
+        document.getElementById("vaultConfirmationMessage").textContent = message;
+        confirmButton.textContent = confirmLabel;
+        dialog.classList.remove("hidden");
+        dialog.classList.add("flex");
+
+        const close = confirmed => {
+            dialog.classList.add("hidden");
+            dialog.classList.remove("flex");
+            confirmButton.onclick = null;
+            cancelButton.onclick = null;
+            resolve(confirmed);
+        };
+        confirmButton.onclick = () => close(true);
+        cancelButton.onclick = () => close(false);
+    });
+}
+
+if (!hasJwtShape(token)) {
+    localStorage.removeItem("token");
+    window.location.replace("login.html");
+}
+
+
+
+async function loadUser() {
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/user/me",
+            {
+                method: "GET",
+
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+
+        const data = await response.json();
+
+        console.log("User API response:", data);
+
+
+
+        if (!response.ok) {
+
+            console.error(
+                "User fetch failed:",
+                data.message
+            );
+
+            localStorage.removeItem("token");
+
+            window.location.href = "login.html";
+
+            return;
+        }
+
+
+    
+
+        const user = data.user;
+
+        console.log("Logged-in user:", user);
+        // Update welcome messages with the logged-in user's name
+const welcomeText = document.getElementById("welcomeText");
+const welcomeTextOverview = document.getElementById("welcomeTextOverview");
+
+if (user && user.name) {
+
+    if (welcomeText) {
+        welcomeText.textContent = `Welcome back, ${user.name}.`;
+    }
+
+    if (welcomeTextOverview) {
+        welcomeTextOverview.textContent = `Welcome back, ${user.name}.`;
+    }
+
+}
+
+
+    
+
+        const nameInput =
+            document.getElementById("profileName");
+
+        if (
+            nameInput &&
+            user &&
+            user.name
+        ) {
+
+            nameInput.value = user.name;
+
+        }
+
+        const emailInput =
+            document.getElementById("profileEmail");
+
+        if (
+            emailInput &&
+            user &&
+            user.email
+        ) {
+
+            emailInput.value = user.email;
+
+        }
+
+        const profilePicturePreview = document.getElementById("profilePicturePreview");
+        if (profilePicturePreview && user?.profilePicture) {
+            profilePicturePreview.src = user.profilePicture;
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Error connecting to backend:",
+            error
+        );
+
+    }
+
+}
+
+
+
+let profilePictureSource = "";
+let universalSearchTimer;
+let profileCropImage = null;
+let profileCropOffset = { x: 0, y: 0 };
+let profileCropDragStart = null;
+
+function openProfilePictureCropper(file) {
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+        alert("Please choose a PNG, JPG, or WEBP image.");
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = event => {
+        profilePictureSource = event.target.result;
+        profileCropImage = new Image();
+        profileCropImage.onload = () => {
+            profileCropOffset = { x: 0, y: 0 };
+            document.getElementById("profileCropPreview").src = profilePictureSource;
+            document.getElementById("profileCropZoom").value = 1;
+            updateProfileCropPreview();
+            document.getElementById("profilePictureCropper").classList.remove("hidden");
+            document.getElementById("profilePictureCropper").classList.add("flex");
+        };
+        profileCropImage.src = profilePictureSource;
+    };
+    reader.readAsDataURL(file);
+}
+
+function updateProfileCropPreview() {
+    if (!profileCropImage) return;
+
+    const zoom = Number(document.getElementById("profileCropZoom").value);
+    const baseScale = 256 / Math.min(profileCropImage.naturalWidth, profileCropImage.naturalHeight);
+    const width = profileCropImage.naturalWidth * baseScale * zoom;
+    const height = profileCropImage.naturalHeight * baseScale * zoom;
+    const maxX = Math.max(0, (width - 256) / 2);
+    const maxY = Math.max(0, (height - 256) / 2);
+
+    profileCropOffset.x = Math.max(-maxX, Math.min(maxX, profileCropOffset.x));
+    profileCropOffset.y = Math.max(-maxY, Math.min(maxY, profileCropOffset.y));
+
+    const preview = document.getElementById("profileCropPreview");
+    preview.style.width = `${width}px`;
+    preview.style.height = `${height}px`;
+    preview.style.left = `${128 + profileCropOffset.x}px`;
+    preview.style.top = `${128 + profileCropOffset.y}px`;
+    preview.style.transform = "translate(-50%, -50%)";
+}
+
+function startProfileCropDrag(event) {
+    if (!profileCropImage) return;
+    event.currentTarget.setPointerCapture(event.pointerId);
+    profileCropDragStart = {
+        x: event.clientX,
+        y: event.clientY,
+        offsetX: profileCropOffset.x,
+        offsetY: profileCropOffset.y
+    };
+}
+
+function moveProfileCropDrag(event) {
+    if (!profileCropDragStart) return;
+    profileCropOffset.x = profileCropDragStart.offsetX + event.clientX - profileCropDragStart.x;
+    profileCropOffset.y = profileCropDragStart.offsetY + event.clientY - profileCropDragStart.y;
+    updateProfileCropPreview();
+}
+
+function endProfileCropDrag(event) {
+    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+        event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+    profileCropDragStart = null;
+}
+
+function closeProfilePictureCropper() {
+    const cropper = document.getElementById("profilePictureCropper");
+    cropper.classList.add("hidden");
+    cropper.classList.remove("flex");
+    document.getElementById("profilePictureInput").value = "";
+}
+
+async function saveCroppedProfilePicture() {
+    const zoom = Number(document.getElementById("profileCropZoom").value);
+    const baseScale = 256 / Math.min(profileCropImage.naturalWidth, profileCropImage.naturalHeight);
+    const renderedScale = baseScale * zoom;
+    const sourceWidth = 256 / renderedScale;
+    const sourceHeight = 256 / renderedScale;
+    const sourceX = (profileCropImage.naturalWidth - sourceWidth) / 2 - profileCropOffset.x / renderedScale;
+    const sourceY = (profileCropImage.naturalHeight - sourceHeight) / 2 - profileCropOffset.y / renderedScale;
+    const canvas = document.createElement("canvas");
+    canvas.width = 256;
+    canvas.height = 256;
+    canvas.getContext("2d").drawImage(profileCropImage, sourceX, sourceY, sourceWidth, sourceHeight, 0, 0, 256, 256);
+
+    const profilePicture = canvas.toDataURL("image/jpeg", 0.88);
+    const name = document.getElementById("profileName").value.trim();
+
+    try {
+        const response = await fetch("http://localhost:5000/api/user/me", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify({ name, profilePicture })
+        });
+        const data = await response.json();
+
+        if (!response.ok) {
+            alert(data.message || "Failed to save profile picture.");
+            return;
+        }
+
+        document.getElementById("profilePicturePreview").src = data.user.profilePicture;
+        closeProfilePictureCropper();
+    } catch (error) {
+        console.error("Profile picture upload error:", error);
+        alert("Unable to connect to VaultFlow server.");
+    }
+}
+
+function searchVault(query) {
+    clearTimeout(universalSearchTimer);
+    universalSearchTimer = setTimeout(() => runVaultSearch(query.trim()), 200);
+}
+
+async function runVaultSearch(query) {
+    const results = document.getElementById("universalSearchResults");
+    if (!query) {
+        results.classList.add("hidden");
+        results.innerHTML = "";
+        return;
+    }
+
+    results.classList.remove("hidden");
+    results.innerHTML = `<p class="px-4 py-3 text-sm text-on-surface-variant">Searching your vault...</p>`;
+
+    try {
+        const headers = { "Authorization": `Bearer ${token}`, "Content-Type": "application/json" };
+        const [documentsResult, notesResult] = await Promise.allSettled([
+            fetch("http://localhost:5000/api/documents", { headers }).then(response => response.json()),
+            fetch("http://localhost:5000/api/notes/", { headers }).then(response => response.json())
+        ]);
+        const documentsData = documentsResult.status === "fulfilled"
+            ? documentsResult.value
+            : { documents: [] };
+        const notesData = notesResult.status === "fulfilled"
+            ? notesResult.value
+            : { notes: [] };
+        const term = query.toLowerCase();
+        const documents = (documentsData.documents || []).filter(doc =>
+            `${doc.originalName || ""} ${doc.fileType || ""}`.toLowerCase().includes(term)
+        );
+        const topics = (notesData.notes || []).filter(note => note.synthesized &&
+            `${note.title || ""} ${note.content || ""}`.toLowerCase().includes(term)
+        );
+
+        if (documents.length === 0 && topics.length === 0) {
+            results.innerHTML = `<p class="px-4 py-3 text-sm text-on-surface-variant">No documents or synthesized topics found.</p>`;
+            return;
+        }
+
+        results.innerHTML = [
+            ...documents.map(doc => `<button type="button" class="w-full px-4 py-3 text-left hover:bg-surface-container-low border-b border-outline-variant" onclick="openSearchResult('view-documents')"><span class="block text-[10px] uppercase tracking-widest text-on-surface-variant">Document</span><span class="block text-sm text-primary truncate">${escapeHtml(doc.originalName)}</span></button>`),
+            ...topics.map(topic => `<button type="button" class="w-full px-4 py-3 text-left hover:bg-surface-container-low border-b border-outline-variant" onclick="openSearchResult('view-my-vault')"><span class="block text-[10px] uppercase tracking-widest text-on-surface-variant">Synthesized topic</span><span class="block text-sm text-primary truncate">${escapeHtml(topic.title || "Untitled topic")}</span></button>`)
+        ].join("");
+    } catch (error) {
+        console.error("Universal search error:", error);
+        results.innerHTML = `<p class="px-4 py-3 text-sm text-error">Unable to search VaultFlow.</p>`;
+    }
+}
+
+function openSearchResult(viewId) {
+    const navItem = document.querySelector(`.nav-item[onclick*="${viewId}"]`);
+    showView(viewId, navItem);
+    document.getElementById("universalSearchInput").value = "";
+    document.getElementById("universalSearchResults").classList.add("hidden");
+}
+
+async function logout() {
+    const confirmed = await showConfirmation(
+        "Are you sure you want to log out of VaultFlow?",
+        "Log out"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    localStorage.removeItem("token");
+    showNotification("You have been logged out.", "success");
+    setTimeout(() => window.location.href = "index.html", 650);
+}
+
+async function saveProfile() {
+
+    const name = document.getElementById("profileName").value.trim();
+
+    if (!name) {
+        alert("Name cannot be empty");
+        return;
+    }
+
+    try {
+
+ const response = await fetch(
+    "http://localhost:5000/api/user/me",
+    {
+        method: "PUT",
+        body: JSON.stringify({ name }),
+        headers: {
+            "Content-Type": "application/json",
+            ...(token ? { "Authorization": `Bearer ${token}` } : {})
+        }
+    }
+);
+
+
+        const data = await response.json();
+
+        console.log("Profile update:", data);
+
+
+        if(response.ok){
+
+            alert("Profile updated successfully");
+
+            const savedName = data.user?.name || name;
+            const welcomeText = document.getElementById("welcomeText");
+            const welcomeTextOverview = document.getElementById("welcomeTextOverview");
+            if (welcomeText) welcomeText.textContent = `Welcome back, ${savedName}.`;
+            if (welcomeTextOverview) welcomeTextOverview.textContent = `Welcome back, ${savedName}.`;
+
+        }
+        else{
+
+            alert(data.message);
+
+        }
+
+
+    } catch(error){
+
+        console.error("Save profile error:", error);
+
+    }
+
+}
+
+async function changePassword() {
+
+    
+
+    const currentPassword =
+        document.getElementById("currentPassword").value;
+
+    const newPassword =
+        document.getElementById("newPassword").value;
+
+
+    if (!currentPassword || !newPassword) {
+
+        alert("Please enter both passwords.");
+
+        return;
+    }
+
+
+    if (newPassword.length < 12) {
+
+        alert("New password must be at least 12 characters long.");
+
+        return;
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/user/change-password",
+            {
+                method: "PUT",
+
+               headers: {
+    "Content-Type": "application/json",
+    ...(token ? { "Authorization": `Bearer ${token}` } : {})
+},
+                body: JSON.stringify({
+                    currentPassword: currentPassword,
+                    newPassword: newPassword
+                })
+            }
+        );
+
+
+        const data = await response.json();
+
+
+        console.log(
+            "Change password response:",
+            data
+        );
+
+
+        if (response.ok) {
+
+            alert("Password updated successfully.");
+
+            document.getElementById("currentPassword").value = "";
+
+            document.getElementById("newPassword").value = "";
+
+        }
+
+        else {
+
+            alert(
+                data.message ||
+                "Failed to update password."
+            );
+
+        }
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Change password error:",
+            error
+        );
+
+        alert("Could not connect to the server.");
+
+    }
+
+}
+
+async function deleteAccount() {
+
+    const confirmed = await showConfirmation(
+        "Are you sure you want to permanently delete your VaultFlow account?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/user/delete",
+            {
+                method: "DELETE",
+
+               headers: {
+    "Content-Type": "application/json",
+    ...(token ? { "Authorization": `Bearer ${token}` } : {})
+}
+            }
+        );
+
+        const data = await response.json();
+
+        console.log("Delete account response:", data);
+
+        if (response.ok) {
+
+            showNotification("Your account has been deleted.", "success");
+
+            localStorage.removeItem("token");
+
+            setTimeout(() => window.location.href = "index.html", 700);
+
+        } else {
+
+            alert(
+                data.message ||
+                "Failed to delete account."
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Delete account error:",
+            error
+        );
+
+        alert("Could not connect to the server.");
+
+    }
+
+}
+
+
+
+
+async function loadActiveNotesCount() {
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/notes/count",
+            {
+                method: "GET",
+
+                headers: {
+    "Content-Type": "application/json",
+    ...(token ? { "Authorization": `Bearer ${token}` } : {})
+}
+            }
+        );
+
+        const data = await response.json();
+
+        console.log("Active notes count:", data);
+
+        if (response.ok) {
+
+            const activeNotesCount =
+                document.getElementById("activeNotesCount");
+
+            if (activeNotesCount) {
+                activeNotesCount.textContent = data.count;
+            }
+
+        } else {
+
+            console.error(
+                "Failed to load active notes:",
+                data.message
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Active notes connection error:",
+            error
+        );
+
+    }
+
+}
+
+async function loadArchivedDocumentsCount() {
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/documents/count",
+            {
+                method: "GET",
+
+                headers: {
+    "Content-Type": "application/json",
+    ...(token ? { "Authorization": `Bearer ${token}` } : {})
+}
+            }
+        );
+
+        const data = await response.json();
+
+        console.log("Archived documents count:", data);
+
+        if (response.ok) {
+
+            const archivedDocumentsCount =
+                document.getElementById("archivedDocumentsCount");
+
+            if (archivedDocumentsCount) {
+                archivedDocumentsCount.textContent = data.count;
+            }
+
+        } else {
+
+            console.error(
+                "Failed to load archived documents:",
+                data.message
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Archived documents connection error:",
+            error
+        );
+
+    }
+
+}
+
+async function loadSynthesizedTopicsCount() {
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/notes/synthesized-count",
+            {
+                method: "GET",
+
+                headers: {
+    "Content-Type": "application/json",
+    ...(token ? { "Authorization": `Bearer ${token}` } : {})
+}
+            }
+        );
+
+        const data = await response.json();
+
+        console.log("Synthesized topics count:", data);
+
+        if (response.ok) {
+
+            const synthesizedTopicsCount =
+                document.getElementById("synthesizedTopicsCount");
+
+            if (synthesizedTopicsCount) {
+                synthesizedTopicsCount.textContent = data.count;
+            }
+
+        } else {
+
+            console.error(
+                "Failed to load synthesized topics:",
+                data.message
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Synthesized topics connection error:",
+            error
+        );
+
+    }
+
+}
+
+async function loadRecentKnowledge() {
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/notes/recent",
+            {
+                method: "GET",
+
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        console.log("Recent knowledge:", data);
+
+        const container =
+            document.getElementById("recentKnowledgeContainer");
+
+        if (!container) {
+            return;
+        }
+
+        if (!response.ok) {
+
+            container.innerHTML = `
+                <div class="py-12 text-center">
+                    <p class="font-body-lg text-on-surface-variant">
+                        Failed to load recent knowledge.
+                    </p>
+                </div>
+            `;
+
+            return;
+        }
+
+        if (!data.notes || data.notes.length === 0) {
+container.innerHTML = `
+    <div class="py-16 flex flex-col items-center justify-center text-center bg-surface-container-low/50">
+
+        <span
+            class="material-symbols-outlined text-on-surface-variant mb-4 opacity-50"
+            style="font-size: 48px;">
+            inventory_2
+        </span>
+
+        <p class="font-body-lg text-on-surface-variant max-w-md">
+            Your knowledge vault is empty. Start by adding a note or uploading a document.
+        </p>
+
+    </div>
+`;
+            return;
+        }
+
+        container.innerHTML = "";
+
+        data.notes.forEach(note => {
+            const noteElement = document.createElement("div");
+
+            noteElement.className =
+                "py-5 flex items-center justify-between hover:bg-surface-container-low px-4 transition-colors";
+
+            noteElement.innerHTML = `
+
+                <div class="flex items-center gap-4">
+
+                    <div class="w-10 h-10 bg-surface-container flex items-center justify-center border border-outline-variant">
+
+                        <span class="material-symbols-outlined text-on-surface-variant">
+                            description
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <h4 class="font-body-lg text-primary font-medium">
+                            ${escapeHtml(note.title || "Untitled Note")}
+                        </h4>
+
+                        <p class="text-sm text-on-surface-variant">
+                            ${note.content
+                                ? escapeHtml(note.content.substring(0, 80))
+                                : "No content available"}
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <span class="text-xs uppercase tracking-widest text-on-surface-variant">
+                    ${note.archived ? "Archived" : "Active"}
+                </span>
+
+            `;
+
+            container.appendChild(noteElement);
+
+        });
+
+    } catch (error) {
+
+        console.error(
+            "Recent knowledge connection error:",
+            error
+        );
+
+    }
+
+}
+
+async function loadMyVault() {
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/notes/",
+            {
+                method: "GET",
+
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        console.log("Synthesized topics:", data);
+
+        const container =
+            document.getElementById("myVaultContainer");
+
+        if (!container) {
+            return;
+        }
+
+        if (!response.ok) {
+
+            container.innerHTML = `
+                <div class="py-16 flex flex-col items-center justify-center text-center border border-dashed border-outline-variant bg-surface-container-low/50">
+
+                    <span
+                        class="material-symbols-outlined text-error mb-4"
+                        style="font-size: 48px;">
+                        error_outline
+                    </span>
+
+                    <p class="font-body-lg text-on-surface-variant">
+                        Failed to load synthesized topics.
+                    </p>
+
+                </div>
+            `;
+
+            return;
+        }
+
+        if (!data.notes || data.notes.length === 0) {
+
+            container.innerHTML = `
+                <div class="py-16 flex flex-col items-center justify-center text-center border border-dashed border-outline-variant bg-surface-container-low/50">
+
+                    <span
+                        class="material-symbols-outlined text-on-surface-variant mb-4"
+                        style="font-size: 48px;">
+                        auto_awesome
+                    </span>
+
+                    <p class="font-body-lg text-on-surface-variant max-w-md">
+                        No synthesized topics yet. Ask Ollama about a document to save the first one here.
+                    </p>
+
+                </div>
+            `;
+
+            return;
+        }
+
+        container.innerHTML = "";
+        synthesizedTopicsById.clear();
+
+        data.notes.forEach(note => {
+            synthesizedTopicsById.set(note._id, note);
+
+            const noteElement =
+                document.createElement("div");
+
+            noteElement.className =
+                "border border-outline-variant bg-surface p-6 hover:bg-surface-container-low transition-colors";
+
+            const date = note.createdAt
+                ? new Date(note.createdAt).toLocaleDateString()
+                : "";
+
+            noteElement.innerHTML = `
+
+                <div class="flex items-start justify-between gap-6">
+
+                    <div class="flex items-start gap-4 flex-1">
+
+                        <div class="w-12 h-12 bg-surface-container flex items-center justify-center border border-outline-variant flex-shrink-0">
+
+                            <span class="material-symbols-outlined text-on-surface-variant">
+                                description
+                            </span>
+
+                        </div>
+
+                        <div class="min-w-0">
+
+                            <h3 class="font-headline-md text-primary text-[24px] mb-1">
+                                ${escapeHtml(note.title || "Untitled Note")}
+                            </h3>
+
+                            <p class="text-sm text-on-surface-variant line-clamp-2">
+                                ${escapeHtml(note.content || "No content available")}
+                            </p>
+
+                            <div class="flex items-center gap-4 mt-4">
+
+                                <span class="text-xs uppercase tracking-widest text-on-surface-variant">
+                                    Ollama output
+                                </span>
+
+                                <span class="text-xs text-on-surface-variant">
+                                    ${date}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <button type="button" class="px-3 py-2 border border-outline-variant text-xs uppercase tracking-widest hover:bg-surface-container" onclick="openSynthesizedTopic('${note._id}')">View</button>
+                        <button type="button" class="p-2 text-error hover:bg-error-container" aria-label="Delete synthesized topic" onclick="deleteSynthesizedTopic('${note._id}')">
+                            <span class="material-symbols-outlined">delete</span>
+                        </button>
+                    </div>
+
+                </div>
+
+            `;
+
+            container.appendChild(noteElement);
+
+        });
+
+    } catch (error) {
+
+        console.error(
+            "Synthesized topics connection error:",
+            error
+        );
+
+        const container =
+            document.getElementById("myVaultContainer");
+
+        if (container) {
+
+            container.innerHTML = `
+                <div class="py-16 flex flex-col items-center justify-center text-center border border-dashed border-outline-variant bg-surface-container-low/50">
+
+                    <span
+                        class="material-symbols-outlined text-error mb-4"
+                        style="font-size: 48px;">
+                        cloud_off
+                    </span>
+
+                    <p class="font-body-lg text-on-surface-variant">
+                        Unable to connect to VaultFlow server.
+                    </p>
+
+                </div>
+            `;
+
+        }
+
+    }
+
+}
+
+function openSynthesizedTopic(topicId) {
+    const topic = synthesizedTopicsById.get(topicId);
+    if (!topic) return;
+
+    document.getElementById("topicViewerTitle").textContent = topic.title || "Synthesized topic";
+    document.getElementById("topicViewerContent").textContent = topic.content || "No content available.";
+    const viewer = document.getElementById("topicViewer");
+    viewer.classList.remove("hidden");
+    viewer.classList.add("flex");
+}
+
+function closeSynthesizedTopic() {
+    const viewer = document.getElementById("topicViewer");
+    viewer.classList.add("hidden");
+    viewer.classList.remove("flex");
+    document.getElementById("topicViewerContent").textContent = "";
+}
+
+async function deleteSynthesizedTopic(topicId) {
+    if (!await showConfirmation("Delete this synthesized topic? This cannot be undone.")) return;
+
+    try {
+        const response = await fetch(`http://localhost:5000/api/notes/${topicId}`, {
+            method: "DELETE",
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || "Failed to delete synthesized topic.");
+
+        showNotification(data.message, "success");
+        loadMyVault();
+        loadSynthesizedTopicsCount();
+        loadRecentKnowledge();
+    } catch (error) {
+        showNotification(error.message);
+    }
+}
+
+function openDocumentPicker() {
+    document.getElementById("documentFileInput").click();
+}
+
+
+async function loadDocuments() {
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/documents",
+            {
+                method: "GET",
+
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        console.log("Documents:", data);
+
+        const container =
+            document.getElementById("documentsContainer");
+
+        if (!container) {
+            return;
+        }
+
+        if (!response.ok) {
+
+            container.innerHTML = `
+                <div class="py-16 flex flex-col items-center justify-center text-center border border-dashed border-outline-variant bg-surface-container-low/50">
+
+                    <span
+                        class="material-symbols-outlined text-error mb-4"
+                        style="font-size: 48px;">
+                        error_outline
+                    </span>
+
+                    <p class="font-body-lg text-on-surface-variant">
+                        Failed to load documents.
+                    </p>
+
+                </div>
+            `;
+
+            return;
+        }
+
+        if (!data.documents || data.documents.length === 0) {
+
+            container.innerHTML = `
+                <div class="py-16 flex flex-col items-center justify-center text-center border border-dashed border-outline-variant bg-surface-container-low/50">
+
+                    <span
+                        class="material-symbols-outlined text-on-surface-variant mb-4"
+                        style="font-size: 48px;">
+                        description
+                    </span>
+
+                    <p class="font-body-lg text-on-surface-variant max-w-md">
+                        No documents found.
+                    </p>
+
+                </div>
+            `;
+
+            return;
+        }
+
+        container.innerHTML = "";
+
+      data.documents.forEach(doc => {
+
+    const documentElement =
+        document.createElement("div");
+
+    documentElement.className =
+        "border border-outline-variant bg-surface p-6 hover:bg-surface-container-low transition-colors";
+    documentElement.draggable = true;
+    documentElement.addEventListener("dragstart", event => {
+        event.dataTransfer.setData("application/x-vaultflow-document", doc._id);
+        event.dataTransfer.effectAllowed = "copy";
+    });
+
+    const date = doc.createdAt
+        ? new Date(doc.createdAt).toLocaleDateString()
+        : "";
+
+    const status = doc.archived
+        ? "Archived"
+        : "Active";
+
+    documentElement.innerHTML = `
+        <div class="flex items-start justify-between gap-6">
+
+            <div class="flex items-start gap-4 flex-1">
+
+                <input
+                    type="checkbox"
+                    aria-label="Select ${escapeHtml(doc.originalName || "document")}"
+                    class="mt-1 h-5 w-5 border-outline-variant text-primary focus:ring-primary cursor-pointer"
+                    ${selectedDocumentIds.has(doc._id) ? "checked" : ""}
+                    onchange="toggleDocumentSelection('${doc._id}', this.checked)">
+
+                <div class="w-12 h-12 bg-surface-container flex items-center justify-center border border-outline-variant flex-shrink-0">
+
+                    <span class="material-symbols-outlined text-on-surface-variant">
+                        description
+                    </span>
+
+                </div>
+
+                <div class="min-w-0">
+
+                    <h3 class="font-headline-md text-primary text-[24px] mb-1">
+                        ${escapeHtml(doc.originalName || "Untitled Document")}
+                    </h3>
+
+                    <p class="text-sm text-on-surface-variant line-clamp-2">
+                        ${escapeHtml(doc.fileType || "Unknown type")}
+                        ${
+                            doc.fileSize
+                                ? " · " + (doc.fileSize / 1024).toFixed(1) + " KB"
+                                : ""
+                        }
+                    </p>
+
+                    <div class="flex items-center gap-4 mt-4">
+
+                        <span class="text-xs uppercase tracking-widest text-on-surface-variant">
+                            ${status}
+                        </span>
+
+                        <span class="text-xs text-on-surface-variant">
+                            ${date}
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="relative flex-shrink-0">
+                <button type="button" aria-label="Document options" class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="toggleDocumentMenu(event, '${doc._id}')">
+                    <span class="material-symbols-outlined">more_vert</span>
+                </button>
+                <div id="document-menu-${doc._id}" class="document-menu hidden absolute right-0 top-full mt-1 z-20 w-48 border border-outline-variant bg-surface shadow-lg py-1">
+                    <button type="button" class="w-full flex items-center gap-3 px-4 py-3 text-left text-sm text-primary hover:bg-surface-container-low transition-colors" onclick="openDocumentViewer('${doc._id}', '${encodeURIComponent(doc.originalName || "Document").replace(/'/g, "%27")}', '${escapeHtml(doc.fileType || "")}')">
+                        <span class="material-symbols-outlined text-[18px]">visibility</span>
+                        View document
+                    </button>
+                    <button type="button" class="w-full flex items-center gap-3 px-4 py-3 text-left text-sm text-primary hover:bg-surface-container-low transition-colors" onclick="openAiForDocument('${doc._id}')">
+                        <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                        Ask AI
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    `;
+
+    container.appendChild(documentElement);
+
+});
+
+    } catch (error) {
+
+        console.error(
+            "Documents connection error:",
+            error
+        );
+
+        const container =
+            document.getElementById("documentsContainer");
+
+        if (container) {
+
+            container.innerHTML = `
+                <div class="py-16 flex flex-col items-center justify-center text-center border border-dashed border-outline-variant bg-surface-container-low/50">
+
+                    <span
+                        class="material-symbols-outlined text-error mb-4"
+                        style="font-size: 48px;">
+                        cloud_off
+                    </span>
+
+                    <p class="font-body-lg text-on-surface-variant">
+                        Unable to connect to VaultFlow server.
+                    </p>
+
+                </div>
+            `;
+
+        }
+
+    }
+}
+
+const selectedDocumentIds = new Set();
+
+function toggleDocumentSelection(documentId, isSelected) {
+    if (isSelected) {
+        selectedDocumentIds.add(documentId);
+    } else {
+        selectedDocumentIds.delete(documentId);
+    }
+
+    updateBulkDeleteControls();
+}
+
+function updateBulkDeleteControls() {
+    const selectedCount = selectedDocumentIds.size;
+
+    ["documentsSelectionCount", "favoritesSelectionCount"].forEach(id => {
+        const counter = document.getElementById(id);
+        if (counter) {
+            counter.textContent = `${selectedCount} selected`;
+        }
+    });
+
+    ["documentsBulkActionsButton", "favoritesBulkActionsButton"].forEach(id => {
+        const button = document.getElementById(id);
+        if (button) {
+            button.disabled = selectedCount === 0;
+        }
+    });
+}
+
+function toggleBulkActionsMenu(event, menuId) {
+    event.stopPropagation();
+
+    document.querySelectorAll(".bulk-actions-menu").forEach(menu => {
+        if (menu.id !== menuId) {
+            menu.classList.add("hidden");
+        }
+    });
+
+    document.getElementById(menuId)?.classList.toggle("hidden");
+}
+
+function toggleDocumentMenu(event, documentId) {
+    event.stopPropagation();
+    document.querySelectorAll(".document-menu").forEach(menu => {
+        if (menu.id !== `document-menu-${documentId}`) menu.classList.add("hidden");
+    });
+    document.getElementById(`document-menu-${documentId}`)?.classList.toggle("hidden");
+}
+
+document.addEventListener("click", () => {
+    document.querySelectorAll(".bulk-actions-menu, .document-menu").forEach(menu => {
+        menu.classList.add("hidden");
+    });
+});
+
+let activeDocumentBlobUrl = null;
+let activeViewerDocumentId = null;
+let activeSelectedText = "";
+
+async function loadAiDocuments() {
+    const select = document.getElementById("aiDocumentSelect");
+    if (!select) return;
+
+    try {
+        const response = await fetch("http://localhost:5000/api/documents", {
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+        const data = await response.json();
+        if (!response.ok) return;
+
+        const selected = select.value;
+        select.innerHTML = `<option value="">Choose a document...</option>` + (data.documents || [])
+            .map(doc => `<option value="${doc._id}">${doc.originalName || "Untitled Document"}</option>`)
+            .join("");
+        select.value = selected;
+    } catch (error) {
+        console.error("AI document list error:", error);
+    }
+}
+
+function openAiForDocument(documentId) {
+    showView("view-ai-assistant", document.querySelector('.nav-item[onclick*=\'view-ai-assistant\']'));
+    const select = document.getElementById("aiDocumentSelect");
+    select.value = documentId;
+    if (!select.value) {
+        loadAiDocuments().then(() => { select.value = documentId; });
+    }
+    document.getElementById("aiQuestionInput").focus();
+}
+
+function clearAiSelectionHint() {
+    activeSelectedText = "";
+    document.getElementById("aiSelectionHint").classList.add("hidden");
+}
+
+function allowDocumentDrop(event) {
+    event.preventDefault();
+    event.currentTarget.classList.add("bg-surface-container-low", "border-primary");
+    event.dataTransfer.dropEffect = "copy";
+}
+
+function leaveDocumentDrop(event) {
+    event.currentTarget.classList.remove("bg-surface-container-low", "border-primary");
+}
+
+async function dropDocumentForAi(event) {
+    event.preventDefault();
+    leaveDocumentDrop(event);
+    const documentId = event.dataTransfer.getData("application/x-vaultflow-document");
+    if (!documentId) return;
+
+    showView("view-ai-assistant", document.querySelector('.nav-item[onclick*=\'view-ai-assistant\']'));
+
+    const select = document.getElementById("aiDocumentSelect");
+    if (!select.querySelector(`option[value="${documentId}"]`)) await loadAiDocuments();
+    select.value = documentId;
+    clearAiSelectionHint();
+    document.getElementById("aiDropHint").textContent = "Document selected. Choose an action or ask a question below.";
+    document.getElementById("aiQuestionInput").focus();
+}
+
+function askAiAboutSelection() {
+    if (!activeSelectedText || !activeViewerDocumentId) return;
+    openAiForDocument(activeViewerDocumentId);
+    document.getElementById("aiQuestionInput").value = "Explain this selected passage in simple words.";
+    const hint = document.getElementById("aiSelectionHint");
+    hint.textContent = "Using the selected text from the document as context.";
+    hint.classList.remove("hidden");
+}
+
+async function runDocumentAi(action) {
+    const documentId = document.getElementById("aiDocumentSelect").value;
+    const question = document.getElementById("aiQuestionInput").value.trim();
+    const responseContainer = document.getElementById("aiResponseContainer");
+    const responseElement = document.getElementById("aiResponse");
+
+    if (!documentId) {
+        showNotification("Choose a document before using AI.");
+        return;
+    }
+    if (action === "ask" && !question && !activeSelectedText) {
+        showNotification("Type a question or select text from a document first.");
+        return;
+    }
+
+    responseContainer.classList.remove("hidden");
+    responseElement.textContent = "VaultFlow AI is reading your document...";
+
+    try {
+        const response = await fetch(`http://localhost:5000/api/ai/document/${documentId}`, {
+            method: "POST",
+            headers: { "Authorization": `Bearer ${token}`, "Content-Type": "application/json" },
+            body: JSON.stringify({
+                action,
+                question,
+                selectedText: activeSelectedText,
+                questionCount: document.getElementById("aiQuestionCount").value
+            })
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || "AI request failed.");
+        responseElement.textContent = data.answer;
+        loadMyVault();
+        loadSynthesizedTopicsCount();
+        loadRecentKnowledge();
+    } catch (error) {
+        console.error("AI request error:", error);
+        responseElement.textContent = error.message;
+        showNotification(error.message);
+    }
+}
+
+async function openDocumentViewer(documentId, encodedName, fileType) {
+    const documentName = decodeURIComponent(encodedName);
+    const viewer = document.getElementById("documentViewer");
+    const content = document.getElementById("documentViewerContent");
+    activeViewerDocumentId = documentId;
+    activeSelectedText = "";
+    document.getElementById("documentViewerAskSelection").classList.add("hidden");
+    document.getElementById("documentViewerTitle").textContent = documentName;
+    content.innerHTML = `<div class="h-full flex items-center justify-center text-on-surface-variant">Opening document...</div>`;
+    viewer.classList.remove("hidden");
+    viewer.classList.add("flex");
+
+    try {
+        const response = await fetch(`http://localhost:5000/api/documents/${documentId}/file`, {
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+        if (!response.ok) {
+            const data = await response.json();
+            throw new Error(data.message || "Unable to open document.");
+        }
+
+        const blob = await response.blob();
+        activeDocumentBlobUrl = URL.createObjectURL(blob);
+        document.getElementById("documentViewerDownload").onclick = () => downloadDocument(activeDocumentBlobUrl, documentName);
+
+        if (fileType === "application/pdf") {
+            content.innerHTML = `<iframe class="w-full h-full" title="Document preview" src="${activeDocumentBlobUrl}"></iframe>`;
+        } else if (fileType === "text/plain") {
+            content.innerHTML = "";
+            const text = document.createElement("pre");
+            text.className = "whitespace-pre-wrap p-6 font-mono text-sm text-on-surface";
+            text.textContent = await blob.text();
+            text.addEventListener("mouseup", () => {
+                const selection = window.getSelection()?.toString().trim();
+                if (selection) {
+                    activeSelectedText = selection;
+                    document.getElementById("documentViewerAskSelection").classList.remove("hidden");
+                }
+            });
+            content.appendChild(text);
+        } else {
+            content.innerHTML = `<div class="h-full flex flex-col items-center justify-center gap-4 p-8 text-center"><span class="material-symbols-outlined text-[48px] text-on-surface-variant">description</span><p class="text-on-surface-variant">DOCX preview is not supported by this browser. Use Download to open it in Word or another document app.</p></div>`;
+        }
+    } catch (error) {
+        console.error("Document viewer error:", error);
+        content.innerHTML = `<div class="h-full flex items-center justify-center p-8 text-center text-error">${error.message}</div>`;
+    }
+}
+
+function downloadDocument(url, documentName) {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = documentName;
+    link.click();
+}
+
+function closeDocumentViewer() {
+    document.getElementById("documentViewer").classList.add("hidden");
+    document.getElementById("documentViewer").classList.remove("flex");
+    document.getElementById("documentViewerContent").innerHTML = "";
+    document.getElementById("documentViewerAskSelection").classList.add("hidden");
+    activeViewerDocumentId = null;
+    if (activeDocumentBlobUrl) {
+        URL.revokeObjectURL(activeDocumentBlobUrl);
+        activeDocumentBlobUrl = null;
+    }
+}
+
+async function toggleDocumentFavorite(documentId) {
+    try {
+        const response = await fetch(
+            `http://localhost:5000/api/documents/${documentId}/favorite`,
+            {
+                method: "PATCH",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            alert(data.message || "Failed to update document favorite.");
+            return;
+        }
+
+        showNotification(data.message || "Document favorite updated.", "success");
+        loadDocuments();
+        loadFavoriteDocuments();
+    } catch (error) {
+        console.error("Document favorite error:", error);
+        alert("Unable to connect to VaultFlow server.");
+    }
+}
+
+async function deleteSelectedDocuments() {
+    const documentIds = [...selectedDocumentIds];
+
+    if (documentIds.length === 0) {
+        return;
+    }
+
+    if (!await showConfirmation(`Delete ${documentIds.length} selected document${documentIds.length === 1 ? "" : "s"}? This cannot be undone.`)) {
+        return;
+    }
+
+    try {
+        const responses = await Promise.all(documentIds.map(documentId =>
+            fetch(`http://localhost:5000/api/documents/${documentId}`, {
+                method: "DELETE",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            })
+        ));
+
+        if (responses.some(response => !response.ok)) {
+            alert("Some documents could not be deleted. Please try again.");
+            return;
+        }
+
+        selectedDocumentIds.clear();
+        updateBulkDeleteControls();
+        loadDocuments();
+        loadFavoriteDocuments();
+        loadArchivedDocumentsCount();
+        showNotification(`${documentIds.length} document${documentIds.length === 1 ? "" : "s"} deleted.`, "success");
+    } catch (error) {
+        console.error("Bulk document delete error:", error);
+        alert("Unable to connect to VaultFlow server.");
+    }
+}
+
+async function setSelectedDocumentsFavorite(favorite) {
+    const documentIds = [...selectedDocumentIds];
+
+    if (documentIds.length === 0) {
+        return;
+    }
+
+    try {
+        const responses = await Promise.all(documentIds.map(documentId =>
+            fetch(`http://localhost:5000/api/documents/${documentId}/favorite`, {
+                method: "PATCH",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ favorite })
+            })
+        ));
+
+        if (responses.some(response => !response.ok)) {
+            alert("Some documents could not be updated. Please try again.");
+            return;
+        }
+
+        selectedDocumentIds.clear();
+        updateBulkDeleteControls();
+        loadDocuments();
+        loadFavoriteDocuments();
+        showNotification(
+            favorite
+                ? `${documentIds.length} document${documentIds.length === 1 ? "" : "s"} added to favorites.`
+                : `${documentIds.length} document${documentIds.length === 1 ? "" : "s"} removed from favorites.`,
+            "success"
+        );
+    } catch (error) {
+        console.error("Bulk favorite update error:", error);
+        alert("Unable to connect to VaultFlow server.");
+    }
+}
+
+async function loadFavoriteDocuments() {
+    const container = document.getElementById("favoritesContainer");
+
+    if (!container) {
+        return;
+    }
+
+    try {
+        const response = await fetch("http://localhost:5000/api/documents", {
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+            }
+        });
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || "Failed to load favorites.");
+        }
+
+        const favorites = (data.documents || []).filter(doc => doc.favorite);
+
+        if (favorites.length === 0) {
+            container.innerHTML = `
+                <div class="py-16 flex flex-col items-center justify-center text-center border border-dashed border-outline-variant bg-surface-container-low/50">
+                    <span class="material-symbols-outlined text-on-surface-variant mb-4 opacity-50" style="font-size: 48px;">star_border</span>
+                    <p class="font-body-lg text-on-surface-variant">No favorite documents yet.</p>
+                </div>`;
+            return;
+        }
+
+        container.innerHTML = favorites.map(doc => `
+            <div class="border border-outline-variant bg-surface p-6 flex items-center justify-between gap-6">
+                <div class="flex items-center gap-4 min-w-0">
+                    <input
+                        type="checkbox"
+                        aria-label="Select ${escapeHtml(doc.originalName || "document")}"
+                        class="h-5 w-5 border-outline-variant text-primary focus:ring-primary cursor-pointer"
+                        ${selectedDocumentIds.has(doc._id) ? "checked" : ""}
+                        onchange="toggleDocumentSelection('${doc._id}', this.checked)">
+                    <div class="w-12 h-12 bg-surface-container flex items-center justify-center border border-outline-variant flex-shrink-0">
+                        <span class="material-symbols-outlined text-on-surface-variant">description</span>
+                    </div>
+                    <div class="min-w-0">
+                        <h3 class="font-headline-md text-primary text-[24px] mb-1">${escapeHtml(doc.originalName || "Untitled Document")}</h3>
+                        <p class="text-sm text-on-surface-variant">${escapeHtml(doc.fileType || "Unknown type")}</p>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-primary">star</span>
+            </div>`).join("");
+        updateBulkDeleteControls();
+    } catch (error) {
+        console.error("Favorites connection error:", error);
+        container.innerHTML = `<p class="text-error">Unable to load favorite documents.</p>`;
+    }
+}
+
+
+async function uploadDocument(file) {
+
+    if (!file) {
+        return;
+    }
+
+
+    const allowedExtensions = [
+        ".pdf",
+        ".docx",
+        ".txt"
+    ];
+
+    const fileName = file.name.toLowerCase();
+
+    const isAllowed = allowedExtensions.some(
+        extension => fileName.endsWith(extension)
+    );
+
+
+    if (!isAllowed) {
+
+        alert("Only PDF, DOCX and TXT files are allowed.");
+
+        document.getElementById(
+            "documentFileInput"
+        ).value = "";
+
+        return;
+    }
+
+
+    const maxSize = 10 * 1024 * 1024;
+
+    if (file.size > maxSize) {
+
+        alert("File size must be 10 MB or less.");
+
+        document.getElementById(
+            "documentFileInput"
+        ).value = "";
+
+        return;
+    }
+
+
+    const formData = new FormData();
+
+    formData.append("document", file);
+
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/documents/upload",
+            {
+                method: "POST",
+
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                },
+
+                body: formData
+            }
+        );
+
+
+        const data = await response.json();
+
+        console.log("Document upload response:", data);
+
+
+        if (!response.ok) {
+
+            alert(
+                data.message ||
+                "Failed to upload document."
+            );
+
+            return;
+        }
+
+
+        alert("Document uploaded successfully.");
+
+
+        // Refresh document-related UI
+        loadDocuments();
+        loadRecentKnowledge();
+        loadActiveNotesCount();
+        loadArchivedDocumentsCount();
+
+
+    } catch (error) {
+
+        console.error(
+            "Document upload error:",
+            error
+        );
+
+        alert(
+            "Unable to connect to VaultFlow server."
+        );
+
+    } finally {
+
+        document.getElementById(
+            "documentFileInput"
+        ).value = "";
+
+    }
+}
+
+if (hasJwtShape(token)) {
+    loadUser();
+    loadActiveNotesCount();
+    loadArchivedDocumentsCount();
+    loadSynthesizedTopicsCount();
+    loadRecentKnowledge();
+    loadMyVault();
+    loadDocuments();
+    loadFavoriteDocuments();
+    loadAiDocuments();
+}
+
+
+
+</script>
+
+</body>
+</html>
